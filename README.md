@@ -12,3 +12,12 @@ The Three different types of users will be:
 2. Admin - This type of user will have access to the bookings.
 3. Owner - This type of user will have access to the bookings and also the overall profits that would come from present and future bookings.
 
+# Commits
+
+## 1st - Init Commit
+
+Just creating the repo
+
+## 2nd - Setting up directorys
+
+Just creating the folders and updating the gitignore to not upload my connection information.
