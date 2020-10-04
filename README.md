@@ -48,3 +48,7 @@ Creating all the php files to handle, database connection, header, navigation an
 ### 4th - Configuring the Login Screen
 
 Created login screen from using a template from getbootstrap.com, this will allow the users to access the CMS.
+
+### 5th - Changed css location
+
+Originally I used a CDN link to bootstrap but then thought against it and just created a locally used bootstrap css file.  Will cut down on bandwidth and everything is kept locally.
