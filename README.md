@@ -52,3 +52,13 @@ Created login screen from using a template from getbootstrap.com, this will allo
 ### 5th - Changed css location
 
 Originally I used a CDN link to bootstrap but then thought against it and just created a locally used bootstrap css file.  Will cut down on bandwidth and everything is kept locally.
+
+### 6th - Created Admin Section
+
+Created the index, and included fontawesome files for later.
+I have also setup the navigation file, with a few things
+
+1. User Menu - for Adding and viewing all users
+2. Customer Menu - for adding and viewing all customers
+3. Wedding Menu - for creating wedding events and viewing all events so far
+4. Logged in User Menu - Changing their options and logging out.
