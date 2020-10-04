@@ -21,3 +21,7 @@ Just creating the repo
 ## 2nd - Setting up directorys
 
 Just creating the folders and updating the gitignore to not upload my connection information.
+
+## 3rd - Setting up Index
+
+Creating all the php files to handle, database connection, header, navigation and footer for the index site.
