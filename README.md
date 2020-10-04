@@ -71,3 +71,12 @@ Create Users
 Read all current users
 Update Users
 Delete Users
+
+### 8th - Created Customer Area
+
+Created the options to
+
+Create Customers
+Read all current Customers
+Update Customers
+Delete Customers
