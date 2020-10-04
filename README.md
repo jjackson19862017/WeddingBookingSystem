@@ -62,3 +62,12 @@ I have also setup the navigation file, with a few things
 2. Customer Menu - for adding and viewing all customers
 3. Wedding Menu - for creating wedding events and viewing all events so far
 4. Logged in User Menu - Changing their options and logging out.
+
+### 7th - Created User Area
+
+Created the options to
+
+Create Users
+Read all current users
+Update Users
+Delete Users
