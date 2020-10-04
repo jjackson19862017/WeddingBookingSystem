@@ -11,11 +11,11 @@
 
     <title>Wedding Booking System</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+   <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="static/css/signin.css" rel="stylesheet">
 
 
 </head>

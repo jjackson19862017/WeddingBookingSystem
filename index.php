@@ -6,7 +6,7 @@
 
 <!-- Page Content -->
 <form class="form-signin" action="includes/login.php" method="post">
-  <img class="mb-4" src="imgs/mill.jpg" alt="" width="300" height="300">
+  <img class="mb-4" src="static/imgs/mill.jpg" alt="" width="300" height="300">
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
   <label for="username" class="sr-only">Username</label>
   <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
