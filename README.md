@@ -91,3 +91,9 @@ Update Wedding Events
 Delete Wedding Events
 
 I also changed some directory locations
+
+### 9th - Updated Wedding View All
+
+Updated the view_all_weddings page to make it more user friendly.
+
+Also taken out the £ symbol on the edit page as it broke the site.

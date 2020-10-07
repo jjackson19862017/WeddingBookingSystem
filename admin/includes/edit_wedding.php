@@ -50,6 +50,7 @@ if(isset($_GET['edit_wedding'])) {
         $event_deposit_taken_date = $_POST['event_deposit_taken_date'];
         $event_25_due_date = $_POST['event_25_due_date'];
         $event_final_wedding_talk_date = $_POST['event_final_wedding_talk_date'];
+        $event_final_payment_date = $_POST['event_final_payment_date'];
         $event_hold = $_POST['event_hold'];
         $event_contract_returned = $_POST['event_contract_returned'];
         $event_agreement_signed = $_POST['event_agreement_signed'];
@@ -73,6 +74,7 @@ if(isset($_GET['edit_wedding'])) {
         $query .= "event_deposit_taken_date = '{$event_deposit_taken_date}', ";
         $query .= "event_25_due_date = '{$event_25_due_date}', ";
         $query .= "event_final_wedding_talk_date = '{$event_final_wedding_talk_date}', ";
+        $query .= "event_final_payment_date = '{$event_final_payment_date}', ";
         $query .= "event_hold = '{$event_hold}', ";
         $query .= "event_contract_returned = '{$event_contract_returned}', ";
         $query .= "event_agreement_signed = '{$event_agreement_signed}', ";
@@ -172,6 +174,11 @@ if(isset($_GET['edit_wedding'])) {
     <div class="form-group">
         <label for="event_final_wedding_talk_date">Final Wedding Talk Date</label>
         <input type="date" name="event_final_wedding_talk_date" id="" class="form-control" value="<?php echo $event_final_wedding_talk_date?>" novalidate>
+    </div>
+
+    <div class="form-group">
+        <label for="event_final_payment_date">Final Payment Date</label>
+        <input type="date" name="event_final_payment_date" id="" class="form-control" value="<?php echo $event_final_payment_date?>" novalidate>
     </div>
 
     <div class="form-group">
@@ -284,22 +291,22 @@ if(isset($_GET['edit_wedding'])) {
 
     <div class="form-group">
         <label for="event_subtotal">Subtotal:</label>
-        <input type="text" name="event_subtotal" id="" class="form-control" value="£<?php echo $event_subtotal?>">
+        <input type="text" name="event_subtotal" id="" class="form-control" value="<?php echo $event_subtotal?>">
     </div>
 
     <div class="form-group">
         <label for="event_25_amount">25% Amount:</label>
-        <input type="text" name="event_25_amount" id="" class="form-control" value="£<?php echo $event_25_amount?>">
+        <input type="text" name="event_25_amount" id="" class="form-control" value="<?php echo $event_25_amount?>">
     </div>
 
     <div class="form-group">
         <label for="event_paid">Amount Paid:</label>
-        <input type="text" name="event_paid" id="" class="form-control" value="£<?php echo $event_paid?>">
+        <input type="text" name="event_paid" id="" class="form-control" value="<?php echo $event_paid?>">
     </div>
 
     <div class="form-group">
         <label for="event_total_outstanding">Total Outstanding:</label>
-        <input type="text" name="event_total_outstanding" id="" class="form-control" value="£<?php echo $event_total_outstanding?>">
+        <input type="text" name="event_total_outstanding" id="" class="form-control" value="<?php echo $event_total_outstanding?>">
     </div>
 
     <div class="form-group">

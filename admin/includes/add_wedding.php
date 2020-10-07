@@ -11,6 +11,7 @@
         $event_deposit_taken_date = $_POST['event_deposit_taken_date'];
         $event_25_due_date = $_POST['event_25_due_date'];
         $event_final_wedding_talk_date = $_POST['event_final_wedding_talk_date'];
+        $event_final_payment_date = $_POST['event_final_payment_date'];
         $event_hold = $_POST['event_hold'];
         $event_contract_returned = $_POST['event_contract_returned'];
         $event_agreement_signed = $_POST['event_agreement_signed'];
@@ -22,8 +23,8 @@
         $event_paid = $_POST['event_paid'];
         $event_total_outstanding = $_POST['event_total_outstanding'];
 
-        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_contract_issued_date, event_function_date, event_deposit_taken_date, event_25_due_date, event_final_wedding_talk_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_subtotal,event_25_amount,event_paid,event_total_outstanding) ";
-        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}','{$event_contract_issued_date}','{$event_function_date}','{$event_deposit_taken_date}','{$event_25_due_date}','{$event_final_wedding_talk_date}', '{$event_hold}', '{$event_contract_returned}','{$event_agreement_signed}','{$event_deposit_taken}','{$event_25_paid}','{$event_had_final_talk}', '{$event_subtotal}','{$event_25_amount}','{$event_paid}','{$event_total_outstanding}') ";
+        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_contract_issued_date, event_function_date, event_deposit_taken_date, event_25_due_date, event_final_wedding_talk_date, event_final_payment_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_subtotal,event_25_amount,event_paid,event_total_outstanding) ";
+        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}','{$event_contract_issued_date}','{$event_function_date}','{$event_deposit_taken_date}','{$event_25_due_date}','{$event_final_wedding_talk_date}', '{$event_final_payment_date}', '{$event_hold}', '{$event_contract_returned}','{$event_agreement_signed}','{$event_deposit_taken}','{$event_25_paid}','{$event_had_final_talk}', '{$event_subtotal}','{$event_25_amount}','{$event_paid}','{$event_total_outstanding}') ";
 
         $create_wedding_query = mysqli_query($connection, $query);
 
@@ -76,6 +77,11 @@
     <div class="form-group">
         <label for="event_final_wedding_talk_date">Final Wedding Talk Date</label>
         <input type="date" name="event_final_wedding_talk_date" id="" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="event_final_payment_date">Final Payment Date</label>
+        <input type="date" name="event_final_payment_date" id="" class="form-control">
     </div>
 
     <div class="form-group">

@@ -216,11 +216,60 @@ function view_all_weddings()
                             $event_paid = $row['event_paid'];
                             $event_total_outstanding = $row['event_total_outstanding'];
                             
+                            $query = "SELECT * FROM customers_details WHERE customer_id = $event_customer_id";
+                        
+                            $select_customers = mysqli_query($connection, $query);
+                        
+                            while($row = mysqli_fetch_assoc($select_customers)) 
+                            {
+                        
+                                $brides_forename = $row['brides_forename'];
+                                $grooms_forename = $row['grooms_forename'];
+                            }
+                            
+                            $bride_and_groom = $brides_forename . " and " . $grooms_forename;
+                        
+                            if($event_hold == 1) {
+                                $event_hold = "Yes";
+                            } else {
+                                $event_hold = "No";
+                            }
+
+                            if($event_contract_returned == 1) {
+                                $event_contract_returned = "Yes";
+                            } else {
+                                $event_contract_returned = "No";
+                            }
+
+                            if($event_agreement_signed == 1) {
+                                $event_agreement_signed = "Yes";
+                            } else {
+                                $event_agreement_signed = "No";
+                            }
+
+                            if($event_deposit_taken == 1) {
+                                $event_deposit_taken = "Yes";
+                            } else {
+                                $event_deposit_taken = "No";
+                            }
+
+                            if($event_25_paid == 1) {
+                                $event_25_paid = "Yes";
+                            } else {
+                                $event_25_paid = "No";
+                            }
+
+                            if($event_had_final_talk == 1) {
+                                $event_had_final_talk = "Yes";
+                            } else {
+                                $event_had_final_talk = "No";
+                            }
+
 
 
                             echo "<tr>";
                             echo "<td>$event_id </td>";
-                            echo "<td>$event_customer_id </td>";
+                            echo "<td>$bride_and_groom </td>";
                             echo "<td>$event_appointment_date </td>";
                             echo "<td>$event_hold_till_date</td>";
                             echo "<td>$event_contract_issued_date</td>";
@@ -235,10 +284,10 @@ function view_all_weddings()
                             echo "<td>$event_deposit_taken</td>";
                             echo "<td>$event_25_paid</td>";
                             echo "<td>$event_had_final_talk</td>";
-                            echo "<td>$event_subtotal</td>";
-                            echo "<td>$event_25_amount</td>";
-                            echo "<td>$event_paid</td>";
-                            echo "<td>$event_total_outstanding</td>";
+                            echo "<td>£$event_subtotal</td>";
+                            echo "<td>£$event_25_amount</td>";
+                            echo "<td>£$event_paid</td>";
+                            echo "<td>£$event_total_outstanding</td>";
 
 
                             echo "<td><a href='weddings.php?source=edit_wedding&edit_wedding={$event_id}'>Edit</a></td>"; // Edit
