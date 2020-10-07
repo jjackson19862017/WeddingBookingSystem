@@ -80,3 +80,14 @@ Create Customers
 Read all current Customers
 Update Customers
 Delete Customers
+
+### 8th - Created Wedding Events Area
+
+Created the options to
+
+Create Wedding Events
+Read all current Wedding Events
+Update Wedding Events
+Delete Wedding Events
+
+I also changed some directory locations

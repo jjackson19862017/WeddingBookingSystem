@@ -241,8 +241,8 @@ function view_all_weddings()
                             echo "<td>$event_total_outstanding</td>";
 
 
-                            echo "<td><a href='wedding_details.php?source=edit_wedding&edit_wedding={$event_id}'>Edit</a></td>"; // Edit
-                            echo "<td><a href='wedding_details.php?delete={$event_id}'>Delete</a></td>"; // Delete
+                            echo "<td><a href='weddings.php?source=edit_wedding&edit_wedding={$event_id}'>Edit</a></td>"; // Edit
+                            echo "<td><a href='weddings.php?delete={$event_id}'>Delete</a></td>"; // Delete
                             echo "</tr>";
                             }
 }

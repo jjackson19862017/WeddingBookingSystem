@@ -24,7 +24,7 @@
 
 <div class="col-xs-12 col-md-6">
 
-<form class="well" action="" method="post" enctype="multipart/form-data">
+<form class="well" action="" method="post">
 
     <div class="form-group">
         <label for="user_username">Username</label>

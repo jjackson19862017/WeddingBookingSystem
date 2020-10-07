@@ -38,11 +38,11 @@
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ring"></i> Wedding<b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li>
-            <a href="wedding_details.php"><i class="fa fa-search-plus"></i> View All Weddings</a>
+            <a href="weddings.php"><i class="fa fa-search-plus"></i> View All Weddings</a>
             </li>
             <li class="divider"></li>
             <li>
-            <a href="wedding_details.php?source=add_wedding"><i class="fa fa-calendar-plus"></i> Add Wedding</a>
+            <a href="weddings.php?source=add_wedding"><i class="fa fa-calendar-plus"></i> Add Wedding</a>
 
             </li>
         </ul>

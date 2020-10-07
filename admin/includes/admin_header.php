@@ -30,10 +30,10 @@ if(!isset($_SESSION['wbs_user_role'])) { // If the role isnt set then
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS-->
-    <link href="/admin/static/css/mystyle.css" rel="stylesheet">
+    <link href="../admin/static/css/mystyle.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/admin/static/fontawesome/css/all.css" rel="stylesheet" type="text/css">
+    <link href="../admin/static/fontawesome/css/all.css" rel="stylesheet" type="text/css">
     
 
      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
