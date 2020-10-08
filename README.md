@@ -97,3 +97,7 @@ I also changed some directory locations
 Updated the view_all_weddings page to make it more user friendly.
 
 Also taken out the £ symbol on the edit page as it broke the site.
+
+### 10th - Connected up the Search Button
+
+I have connected the search button on the navigation bar, to search for the bride or groom name and display the results in a table.
