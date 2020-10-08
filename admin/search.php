@@ -19,7 +19,7 @@
     }
 
     $count = mysqli_num_rows($searchQuery);
-
+ 
     if($count == 0 ) 
     { ?>
         <h1 class="page-header">

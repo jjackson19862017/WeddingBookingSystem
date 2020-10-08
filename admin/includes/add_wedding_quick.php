@@ -5,30 +5,21 @@
     
         $event_customer_id = $_POST['event_customer_id'];
         $event_appointment_date = $_POST['event_appointment_date'];
-        $event_hold_till_date = $_POST['event_hold_till_date'];
-        $event_contract_issued_date = $_POST['event_contract_issued_date'];
-        $event_function_date = $_POST['event_function_date'];
-        $event_deposit_taken_date = $_POST['event_deposit_taken_date'];
-        $event_25_due_date = $_POST['event_25_due_date'];
-        $event_final_wedding_talk_date = $_POST['event_final_wedding_talk_date'];
-        $event_final_payment_date = $_POST['event_final_payment_date'];
-        $event_hold = $_POST['event_hold'];
-        $event_contract_returned = $_POST['event_contract_returned'];
-        $event_agreement_signed = $_POST['event_agreement_signed'];
-        $event_deposit_taken = $_POST['event_deposit_taken'];
-        $event_25_paid = $_POST['event_25_paid'];
-        $event_had_final_talk = $_POST['event_had_final_talk'];
-        $event_subtotal = $_POST['event_subtotal'];
-        $event_25_amount = $_POST['event_25_amount'];
-        $event_paid = $_POST['event_paid'];
-        $event_total_outstanding = $_POST['event_total_outstanding'];
+        
+        $event_hold_till_date = date_create($event_appointment_date);
+        date_add($event_hold_till_date, date_interval_create_from_date_string("14 Days"));
+        $event_hold_till_date = date_format($event_hold_till_date,"Y-m-d");
 
-        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_contract_issued_date, event_function_date, event_deposit_taken_date, event_25_due_date, event_final_wedding_talk_date, event_final_payment_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_subtotal,event_25_amount,event_paid,event_total_outstanding) ";
-        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}','{$event_contract_issued_date}','{$event_function_date}','{$event_deposit_taken_date}','{$event_25_due_date}','{$event_final_wedding_talk_date}', '{$event_final_payment_date}', '{$event_hold}', '{$event_contract_returned}','{$event_agreement_signed}','{$event_deposit_taken}','{$event_25_paid}','{$event_had_final_talk}', '{$event_subtotal}','{$event_25_amount}','{$event_paid}','{$event_total_outstanding}') ";
+        
+        $event_hold = $_POST['event_hold'];
+
+        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_hold) ";
+        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}', '{$event_hold}') ";
 
         $create_wedding_query = mysqli_query($connection, $query);
 
         confirmsQuery($create_wedding_query); // Calls a function so that i can refer 
+        header("Location: weddings.php"); // Refreshes Page 
     }
 
 
@@ -38,7 +29,9 @@
 
 <form class="well" action="" method="post" novalidate>
 
-<div class="form-group">
+
+
+    <div class="form-group">
 <label for="event_customer_id">Bride and Groom</label>
 
         <select name="event_customer_id" id="">
@@ -70,15 +63,17 @@
         <input type="date" name="event_appointment_date" id="" class="form-control">
     </div>
 
+    <!-- Unrequired Fields 
+        
     <div class="form-group">
         <label for="event_hold_till_date">Hold Till Date</label>
         <input type="date" name="event_hold_till_date" id="" class="form-control">
-    </div>
+    </div> 
 
     <div class="form-group">
         <label for="event_contract_issued_date">Contract Issued Date</label>
         <input type="date" name="event_contract_issued_date" id="" class="form-control">
-    </div>
+    </div> 
 
     <div class="form-group">
         <label for="event_function_date">Wedding Date</label>
@@ -93,7 +88,7 @@
     <div class="form-group">
         <label for="event_25_due_date">25% Payment Due Date</label>
         <input type="date" name="event_25_due_date" id="" class="form-control">
-    </div>
+    </div> 
 
     <div class="form-group">
         <label for="event_final_wedding_talk_date">Final Wedding Talk Date</label>
@@ -103,7 +98,7 @@
     <div class="form-group">
         <label for="event_final_payment_date">Final Payment Date</label>
         <input type="date" name="event_final_payment_date" id="" class="form-control">
-    </div>
+    </div> -->
 
     <div class="form-group">
         <label for="event_hold">On Hold?<br></label>
@@ -115,6 +110,7 @@
         </div>
     </div>
 
+    <!-- Unrequired
     <div class="form-group">
         <label for="event_contract_returned">Contract Returned?<br></label>
         <div class="form-check form-check-inline">
@@ -192,7 +188,7 @@
     <div class="form-group">
         <label for="event_total_outstanding">Total Outstanding:</label>
         <input type="text" name="event_total_outstanding" id="" class="form-control">
-    </div>
+    </div> -->
 
     <div class="form-group">
         <input type="submit" class="btn btn-primary" name="create_wedding" id="" Value="Insert Wedding">

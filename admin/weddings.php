@@ -32,6 +32,10 @@
                                     include "includes/add_wedding.php";
                                     break;
 
+                                    case 'add_wedding_quick';
+                                    include "includes/add_wedding_quick.php";
+                                    break;
+
                                     case 'edit_wedding';
                                     include "includes/edit_wedding.php";
                                     break;

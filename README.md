@@ -101,3 +101,9 @@ Also taken out the £ symbol on the edit page as it broke the site.
 ### 10th - Connected up the Search Button
 
 I have connected the search button on the navigation bar, to search for the bride or groom name and display the results in a table.
+
+### 11th - Changed add_wedding.php and Created a quick weddings insert.
+
+I have changed the add_wedding, so that users can see the bride and groom instead of having to remember a customers id number.
+
+I have also added a quick wedding form, that the user can just add an appointment date and then a hold date will be created.  After the appointment has happened then the user can fill the rest of the details in.
