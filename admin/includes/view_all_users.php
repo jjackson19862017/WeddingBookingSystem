@@ -1,5 +1,5 @@
 
-
+<!--
 <table class = "table table-bordered table-hover">
                                 <thead>
                                     <tr>
@@ -15,7 +15,7 @@
                                         
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody> -->
 
 
                             <?php 
@@ -23,10 +23,20 @@
                             view_all_users();
                             
                             ?>
-                                </tbody>
-                            </table>
+                         <!--       </tbody>
+                            </table> -->
 
                             <?php 
+
+if(isset($_GET['change_to_super'])) {
+                                        
+    $the_user_id = $_GET['change_to_super'];
+    $query = "UPDATE wbs_users SET user_role = 1 WHERE user_id = $the_user_id";
+    $changeToSuperQuery = mysqli_query($connection, $query);
+    confirmsQuery($changeToSuperQuery);
+    header("Location: users.php"); // Refreshes Page
+    }
+
                                 if(isset($_GET['change_to_admin'])) {
                                         
                                     $the_user_id = $_GET['change_to_admin'];

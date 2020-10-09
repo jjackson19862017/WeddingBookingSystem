@@ -26,6 +26,8 @@ if(isset($_GET['edit_customer'])) {
                             $county = $row['county'];
                             $post_code = $row['post_code'];
                             $date_added = $row['date_added'];
+                            $wedding_booked = $row['wedding_booked'];
+
                             }
 
 
@@ -51,6 +53,8 @@ if(isset($_GET['edit_customer'])) {
         $town_city = $_POST['town_city'];
         $county = $_POST['county'];
         $post_code = $_POST['post_code'];
+        $wedding_booked = $_POST['wedding_booked'];
+
 
 
 
@@ -68,7 +72,9 @@ if(isset($_GET['edit_customer'])) {
         $query .= "address_2 = '{$address_2}', ";
         $query .= "town_city = '{$town_city}', ";
         $query .= "county = '{$county}', ";
-        $query .= "post_code = '{$post_code}' ";
+        $query .= "post_code = '{$post_code}', ";
+        $query .= "wedding_booked = '{$wedding_booked}' ";
+
         $query .= "WHERE customer_id = {$the_customer_id} ";
     
         
@@ -156,6 +162,24 @@ if(isset($_GET['edit_customer'])) {
     <div class="form-group">
         <label for="post_code">Post Code</label>
         <input type="text" name="post_code" id="" class="form-control" value="<?php echo $post_code?>">
+    </div>
+
+    <div class="form-group">
+        <label for="wedding_booked">Wedding Booked?<br></label>
+        <div class="form-check form-check-inline">
+            <?php    
+            if($wedding_booked == 1){
+            echo '<input class="form-check-input" type="radio" name="wedding_booked" id="inlineRadio1" value="1" checked>';
+            echo '<label class="form-check-label" for="inlineRadio1">Yes</label>';
+            echo '<input class="form-check-input" type="radio" name="wedding_booked" id="inlineRadio2" value="0">';
+            echo '<label class="form-check-label" for="inlineRadio2">No</label>'; 
+            } else {
+            echo '<input class="form-check-input" type="radio" name="wedding_booked" id="inlineRadio1" value="1">';
+            echo '<label class="form-check-label" for="inlineRadio1">Yes</label>';
+            echo '<input class="form-check-input" type="radio" name="wedding_booked" id="inlineRadio2" value="0" checked>';
+            echo '<label class="form-check-label" for="inlineRadio2">No</label>'; }
+                ?>
+        </div>
     </div>
 
     <div class="form-group">

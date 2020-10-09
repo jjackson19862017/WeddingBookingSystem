@@ -119,3 +119,11 @@ I changed the Navigation Bar and dropdown menus.
 I also changed the page headers to jumbrotrons for more or a cleaner user experience.
 
 I added a few comments.
+
+### 14th - Changed Viewing All User Frontend
+
+Modifed Edit Customer so that you can change the status of wedding booked or not.
+
+Also updated the Users Page, to place the users in Cards with different colours for the different roles.
+
+Also added a font awesome icon to the search button.

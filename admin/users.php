@@ -13,7 +13,8 @@
     <div class="jumbotron jumbotron-fluid mt-2 p-2">
             <div class="container">
                 <h1 class="display-4">Viewing All Users</h1>
-                
+                <p class="lead">You can change the roles of the users by clicking on the Roles Button.  You can also Edit and Delete Users.</p>
+
             </div>
         </div>
                             

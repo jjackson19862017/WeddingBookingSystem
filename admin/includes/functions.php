@@ -168,7 +168,11 @@ global $style_no;
 
 function view_all_users()
 { global $connection;
-    $query = "SELECT * FROM wbs_users";
+
+    echo "<div class='container-fluid'>";
+    echo "<div class='row'>";
+
+    $query = "SELECT * FROM wbs_users ORDER BY `user_username` ASC";
                             $select_customers = mysqli_query($connection, $query);
 
                             while($row = mysqli_fetch_assoc($select_customers)) 
@@ -179,12 +183,10 @@ function view_all_users()
                             $user_role = $row['user_role'];
                             $user_randSalt = $row['user_randSalt'];
 
-                            echo "<tr>";
-                            echo "<td>$user_id </td>";
                             
-                            echo "<td>$user_username </td>";
-                            echo "<td>$user_password </td>";
-
+                           
+                            
+                            // Looks up the user role Id and puts the Role Title there instead.
                             $query = "SELECT * FROM users_roles WHERE role_id = $user_role ";
                             $select_role_id = mysqli_query($connection, $query);
 
@@ -193,14 +195,61 @@ function view_all_users()
                             $role_id = $row['role_id'];
                             $role_title = $row['role_title'];}
 
-                            echo "<td>$role_title</td>";
-                            echo "<td>$user_randSalt</td>";
-                            echo "<td><a href='users.php?change_to_admin={$user_id}'>Admin</a></td>"; // Changes field data
-                            echo "<td><a href='users.php?change_to_owner={$user_id}'>Owner</a></td>"; // Changes field data
-                            echo "<td><a href='users.php?source=edit_user&edit_user={$user_id}'>Edit</a></td>"; // Edit
-                            echo "<td><a href='users.php?delete={$user_id}'>Delete</a></td>"; // Delete
-                            echo "</tr>";
+                            // echo "<tr>";
+                            // echo "<td>$user_id </td>";
+                            // echo "<td>$user_username </td>";
+                            // echo "<td>$user_password </td>";
+                            // echo "<td>$role_title</td>";
+                            // echo "<td>$user_randSalt</td>";
+                            // echo "<td><a href='users.php?change_to_admin={$user_id}'>Admin</a></td>"; // Changes field data
+                            // echo "<td><a href='users.php?change_to_owner={$user_id}'>Owner</a></td>"; // Changes field data
+                            // echo "<td><a href='users.php?source=edit_user&edit_user={$user_id}'>Edit</a></td>"; // Edit
+                            // echo "<td><a href='users.php?delete={$user_id}'>Delete</a></td>"; // Delete
+                            // echo "</tr>";
+                            
+                                if($role_id == 1){
+                                    $user_style = "text-white bg-primary mb-3";
+                                } elseif($role_id == 2) {
+                                    $user_style = "text-white bg-secondary mb-3";
+                                } else {
+                                    $user_style = "text-white bg-warning mb-3";
+                                }
+
+                            echo "<div class='col-sm-4'>";
+                            echo "<div class='card text-center $user_style'>";
+
+                            
+                                echo "<div class='card-header text-capitalize font-weight-bolder'>";
+                                echo "<h3> $user_username </h3>";
+                                echo "</div>";
+                                
+                                echo "<div class='card-body'>";
+                                echo "<h5 class='card-title'>Role: $role_title</h5>";
+                                echo "<a class='btn btn-dark mx-2' role='button' href='users.php?change_to_super={$user_id}'>Super</a>";
+                                echo "<a class='btn btn-dark mx-2' role='button' href='users.php?change_to_admin={$user_id}'>Admin</a>";
+                                echo "<a class='btn btn-dark mx-2' role='button' href='users.php?change_to_owner={$user_id}'>Owner</a>";
+                                echo "</div>";
+                                
+                                echo "<div class='card-footer text-muted'>";
+                                
+                                echo "<a class='btn btn-dark mx-2' role='button' href='users.php?source=edit_user&edit_user={$user_id}'><i class='fas fa-user-edit'></i> Edit</a>";
+                                echo "<a class='btn btn-dark mx-2' role='button' href='users.php?delete={$user_id}'><i class='fas fa-trash-alt'></i> Delete</a>";
+
+                                echo "</div>";
+                            
+                            echo "</div>";
+                            echo "</div>";
+
+                            
+
+                            
+                            
                             }
+                            echo "</div>";
+                            echo "</div>";
+                        
+
+
 }
 
 
