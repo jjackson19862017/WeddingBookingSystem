@@ -1,5 +1,8 @@
 <?php
 
+$style_yes = "class='text-success'";
+$style_no = "class='text-danger'";
+
 function confirmsQuery($result) // This is check to make sure a query works
 { 
     global $connection; // Calls the variable from the db.php
@@ -99,6 +102,8 @@ function select_role()
 
 function view_all_customers()
 { global $connection;
+global $style_yes;
+global $style_no;
     $query = "SELECT * FROM customers_details";
 
                             $selectusers = mysqli_query($connection, $query);
@@ -122,10 +127,21 @@ function view_all_customers()
                             $county = $row['county'];
                             $post_code = $row['post_code'];
                             $date_added = $row['date_added'];
+                            $wedding_booked = $row['wedding_booked'];
+
+                            if($wedding_booked == 1) {
+                                $wedding_booked = "Yes";
+                                $style_wedding_booked = $style_yes;
+                            } else {
+                                $wedding_booked = "No";
+                                $style_wedding_booked = $style_no;
+                            }
+
+
+
 
                             echo "<tr>";
                             echo "<td>$customer_id </td>";
-                            
                             echo "<td>$brides_forename </td>";
                             echo "<td>$brides_surname </td>";
                             echo "<td>$brides_telephone</td>";
@@ -141,6 +157,8 @@ function view_all_customers()
                             echo "<td>$county</td>";
                             echo "<td>$post_code</td>";
                             echo "<td>$date_added</td>";
+                            echo "<td $style_wedding_booked>$wedding_booked</td>";
+                            
 
                             echo "<td><a href='customer_details.php?source=edit_customer&edit_customer={$customer_id}'>Edit</a></td>"; // Edit
                             echo "<td><a href='customer_details.php?delete={$customer_id}'>Delete</a></td>"; // Delete
@@ -188,6 +206,8 @@ function view_all_users()
 
 function view_all_weddings()
 { global $connection;
+    global $style_yes;
+global $style_no;
     $query = "SELECT * FROM event_details";
 
                             $select_event = mysqli_query($connection, $query);
@@ -229,40 +249,56 @@ function view_all_weddings()
                             
                             $bride_and_groom = $brides_forename . " and " . $grooms_forename;
                         
+                            
+
+
+
                             if($event_hold == 1) {
                                 $event_hold = "Yes";
+                                $style_hold = $style_yes;
                             } else {
                                 $event_hold = "No";
+                                $style_hold = $style_no;
                             }
 
                             if($event_contract_returned == 1) {
                                 $event_contract_returned = "Yes";
+                                $style_contract_returned = $style_yes;
                             } else {
                                 $event_contract_returned = "No";
+                                $style_contract_returned = $style_no;
                             }
 
                             if($event_agreement_signed == 1) {
                                 $event_agreement_signed = "Yes";
+                                $style_agreement_signed = $style_yes;
                             } else {
                                 $event_agreement_signed = "No";
+                                $style_agreement_signed = $style_no;
                             }
 
                             if($event_deposit_taken == 1) {
                                 $event_deposit_taken = "Yes";
+                                $style_deposit_taken = $style_yes;
                             } else {
                                 $event_deposit_taken = "No";
+                                $style_deposit_taken = $style_no;
                             }
 
                             if($event_25_paid == 1) {
                                 $event_25_paid = "Yes";
+                                $style_25_paid = $style_yes;
                             } else {
                                 $event_25_paid = "No";
+                                $style_25_paid = $style_no;
                             }
 
                             if($event_had_final_talk == 1) {
                                 $event_had_final_talk = "Yes";
+                                $style_had_final_talk = $style_yes;
                             } else {
                                 $event_had_final_talk = "No";
+                                $style_had_final_talk = $style_no;
                             }
 
 
@@ -278,12 +314,12 @@ function view_all_weddings()
                             echo "<td>$event_25_due_date</td>";
                             echo "<td>$event_final_wedding_talk_date</td>";
                             echo "<td>$event_final_payment_date</td>";
-                            echo "<td>$event_hold</td>";
-                            echo "<td>$event_contract_returned</td>";
-                            echo "<td>$event_agreement_signed</td>";
-                            echo "<td>$event_deposit_taken</td>";
-                            echo "<td>$event_25_paid</td>";
-                            echo "<td>$event_had_final_talk</td>";
+                            echo "<td $style_hold>$event_hold</td>";
+                            echo "<td $style_contract_returned>$event_contract_returned</td>";
+                            echo "<td $style_agreement_signed>$event_agreement_signed</td>";
+                            echo "<td $style_deposit_taken>$event_deposit_taken</td>";
+                            echo "<td $style_25_paid>$event_25_paid</td>";
+                            echo "<td $style_had_final_talk>$event_had_final_talk</td>";
                             echo "<td>£$event_subtotal</td>";
                             echo "<td>£$event_25_amount</td>";
                             echo "<td>£$event_paid</td>";

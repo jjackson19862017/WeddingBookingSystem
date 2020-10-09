@@ -19,6 +19,11 @@
         $create_wedding_query = mysqli_query($connection, $query);
 
         confirmsQuery($create_wedding_query); // Calls a function so that i can refer 
+
+        $query = "UPDATE customers_details SET wedding_booked = 1 WHERE customer_id = $event_customer_id";
+        $wedding_booked_Query = mysqli_query($connection, $query);
+        confirmsQuery($wedding_booked_Query);
+
         header("Location: weddings.php"); // Refreshes Page 
     }
 
@@ -37,7 +42,7 @@
         <select name="event_customer_id" id="">
         <?php 
 
-            $query = "SELECT * FROM customers_details";
+            $query = "SELECT * FROM customers_details WHERE wedding_booked = 0";
             $select_customers_Id = mysqli_query($connection, $query);
             confirmsQuery($select_customers_Id);
             while($row = mysqli_fetch_assoc($select_customers_Id)) 

@@ -25,11 +25,14 @@
 
         $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_contract_issued_date, event_function_date, event_deposit_taken_date, event_25_due_date, event_final_wedding_talk_date, event_final_payment_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_subtotal,event_25_amount,event_paid,event_total_outstanding) ";
         $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}','{$event_contract_issued_date}','{$event_function_date}','{$event_deposit_taken_date}','{$event_25_due_date}','{$event_final_wedding_talk_date}', '{$event_final_payment_date}', '{$event_hold}', '{$event_contract_returned}','{$event_agreement_signed}','{$event_deposit_taken}','{$event_25_paid}','{$event_had_final_talk}', '{$event_subtotal}','{$event_25_amount}','{$event_paid}','{$event_total_outstanding}') ";
-
         $create_wedding_query = mysqli_query($connection, $query);
-
         confirmsQuery($create_wedding_query); // Calls a function so that i can refer 
-    }
+    
+        $query = "UPDATE customers_details SET wedding_booked = 1 WHERE customer_id = $event_customer_id";
+                                $wedding_booked_Query = mysqli_query($connection, $query);
+                                confirmsQuery($wedding_booked_Query);
+
+                            }
 
 
 ?>
@@ -44,7 +47,8 @@
         <select name="event_customer_id" id="">
         <?php 
 
-            $query = "SELECT * FROM customers_details";
+            $query = "SELECT * FROM customers_details WHERE wedding_booked = 0";
+
             $select_customers_Id = mysqli_query($connection, $query);
             confirmsQuery($select_customers_Id);
             while($row = mysqli_fetch_assoc($select_customers_Id)) 

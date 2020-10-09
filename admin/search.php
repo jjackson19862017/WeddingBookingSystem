@@ -91,8 +91,7 @@
                             <?php 
                             
                             echo "<tr>";
-                            echo "<td>$customer_id </td>";
-                            
+                            echo "<td>$customer_id </td>"; 
                             echo "<td>$brides_forename </td>";
                             echo "<td>$brides_surname </td>";
                             echo "<td>$brides_telephone</td>";

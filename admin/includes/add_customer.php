@@ -18,9 +18,10 @@
         $county = $_POST['county'];
         $post_code = $_POST['post_code'];
         $date_added = date('d-m-y');
+        $wedding_booked = 0;
 
-        $query = "INSERT INTO customers_details(brides_forename, brides_surname, brides_telephone, brides_email, grooms_forename, grooms_surname, grooms_telephone, grooms_email, preferred_contact, address_1, address_2, town_city, county, post_code, date_added) ";
-        $query .= "VALUES('{$brides_forename}','{$brides_surname}','{$brides_telephone}','{$brides_email}','{$grooms_forename}','{$grooms_surname}','{$grooms_telephone}','{$grooms_email}', '{$preferred_contact}', '{$address_1}','{$address_2}','{$town_city}','{$county}','{$post_code}',now() ) ";
+        $query = "INSERT INTO customers_details(brides_forename, brides_surname, brides_telephone, brides_email, grooms_forename, grooms_surname, grooms_telephone, grooms_email, preferred_contact, address_1, address_2, town_city, county, post_code, date_added, wedding_booked) ";
+        $query .= "VALUES('{$brides_forename}','{$brides_surname}','{$brides_telephone}','{$brides_email}','{$grooms_forename}','{$grooms_surname}','{$grooms_telephone}','{$grooms_email}', '{$preferred_contact}', '{$address_1}','{$address_2}','{$town_city}','{$county}','{$post_code}',now(),$wedding_booked ) ";
 
         $create_customer_query = mysqli_query($connection, $query);
 

@@ -18,6 +18,7 @@
                                         <th>County</th>
                                         <th>Post Code</th>
                                         <th>Date Added</th>
+                                        <th>Wedding Booked</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                         
