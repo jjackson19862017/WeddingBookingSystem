@@ -8,24 +8,26 @@
 
     $search = $_POST['search'];
 
-    // If submitted search database
+    // If submitted search database using the following fields to look for a name and return the results.
 
     $query = "SELECT * FROM customers_details WHERE brides_forename LIKE '%$search%' OR brides_surname LIKE '%$search%' OR grooms_forename LIKE '%$search%' OR grooms_surname LIKE '%$search%' ";
     $searchQuery = mysqli_query($connection, $query);
 
-    if(!$searchQuery) 
+    if(!$searchQuery) // If Query fails.
     {
         die("QUERY FAILED" . mysqli_error($connection));
     }
 
-    $count = mysqli_num_rows($searchQuery);
+    $count = mysqli_num_rows($searchQuery); // Counts the returned query
  
     if($count == 0 ) 
     { ?>
-        <h1 class="page-header">
-                    <?php echo "No Results for " . $search ;?>
-                </h1>
-                <!-- First Blog Post -->
+    <div class="jumbotron jumbotron-fluid mt-2 p-2">
+        <div class="container">
+            <h1 class="display-4"><?php echo "No Results for " . $search ;?></h1>
+            <p class="lead">Sorry please try a different criteria.</p>
+        </div>
+    </div>
                 
     <?php } else {
 
@@ -49,18 +51,19 @@
                     $date_added = $row['date_added'];
 
                 ?>
-                
-                <h1 class="page-header">
-                    <?php 
-                    if($count > 1){
-                    echo "Found " . $count . " Results for " . $search;}
-                    else {
-                    echo "Found " . $count . " Result for " . $search;
-                    }
-                    ?>
-                </h1>
-                <!-- First Blog Post -->
-                <hr>
+                    <div class="jumbotron jumbotron-fluid mt-2 p-2">
+                        <div class="container">
+                        <?php 
+                            if($count > 1){
+                            $count_result = "Found " . $count . " Results for " . $search;}
+                            else {
+                            $count_result = "Found " . $count . " Result for " . $search;
+                            }
+                        ?>
+                            <h1 class="display-4"><?php echo $count_result ;?></h1>
+                        </div>
+                    </div>
+
                 <table class = "table table-bordered table-hover">
                                 <thead>
                                     <tr>

@@ -111,3 +111,11 @@ I have also added a quick wedding form, that the user can just add an appointmen
 ### 12th - Change to Customers in the Add Wedding Forms
 
 Only the customers that dont have a wedding booked will show in the Bride & Groom Dropdown Menu.
+
+### 13th - Changed Frontend
+
+I changed the Navigation Bar and dropdown menus.
+
+I also changed the page headers to jumbrotrons for more or a cleaner user experience.
+
+I added a few comments.

@@ -30,14 +30,14 @@
 
 ?>
 
-<div class="col-xs-12 col-md-6">
+<div class="col-xs-12 col-md-122">
 
 <form class="well" action="" method="post" novalidate>
 
 
 
     <div class="form-group">
-<label for="event_customer_id">Bride and Groom</label>
+    <label for="event_customer_id">Bride and Groom</label>
 
         <select name="event_customer_id" id="">
         <?php 

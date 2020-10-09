@@ -4,17 +4,13 @@
 <?php include "includes/admin_navigation.php" ?>
     <div class="container-fluid">
         <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                <?php echo "Welcome " . $_SESSION['wbs_username'] ?>
-                </h1>
+        <div class="jumbotron jumbotron-fluid mt-2 p-2">
+            <div class="container">
+                <h1 class="display-4"><?php echo "Welcome " . $_SESSION['wbs_username'] ?></h1>
+                <p class="lead">You have access to the backend of the Weddings Booking System</p>
             </div>
         </div>
-            <!-- /.row -->
-            <!-- /.row -->
-        <div class="row">
-        </div>
+        
     </div>
 <!-- /.container-fluid -->
 

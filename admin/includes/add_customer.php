@@ -31,7 +31,7 @@
 
 ?>
 
-<div class="col-xs-12 col-md-6">
+<div class="col-xs-12 col-md-12">
 
 <form class="well" action="" method="post">
 

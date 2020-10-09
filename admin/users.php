@@ -10,14 +10,12 @@
 
         
 
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            View All Users
-                        </h1>
+    <div class="jumbotron jumbotron-fluid mt-2 p-2">
+            <div class="container">
+                <h1 class="display-4">Viewing All Users</h1>
+                
+            </div>
+        </div>
                             
                             <?php 
                             

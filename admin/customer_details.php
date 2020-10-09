@@ -6,14 +6,11 @@
     <?php include "includes/admin_navigation.php" ?>
         
 
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            View All Customers
-                        </h1>
+    <div class="jumbotron jumbotron-fluid mt-2 p-2">
+            <div class="container">
+                <h1 class="display-4">View All Customers</h1>
+            </div>
+        </div>
                             
                             <?php 
                             

@@ -1,6 +1,6 @@
 <?php
 
-    if(isset($_POST['create_user'])) 
+    if(isset($_POST['create_user'])) // If the submit button is pushed
     {
     
         $user_username = $_POST['user_username'];
@@ -22,7 +22,7 @@
 
 ?>
 
-<div class="col-xs-12 col-md-6">
+<div class="col-xs-12 col-md-12">
 
 <form class="well" action="" method="post">
 
@@ -48,7 +48,7 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" class="btn btn-primary" name="create_user" id="" Value="Add User">
+        <input type="submit" class="btn btn-primary" name="create_user" id="" Value="Create User">
     </div>
 
 </form>
