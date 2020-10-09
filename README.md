@@ -127,3 +127,9 @@ Modifed Edit Customer so that you can change the status of wedding booked or not
 Also updated the Users Page, to place the users in Cards with different colours for the different roles.
 
 Also added a font awesome icon to the search button.
+
+### 15th - Changed View All Customers Frontend
+
+Modified View All Customers to show less information, to make it less confusing on the end user.
+
+The View Button will bring up a customers profile page so that they can see all their details, will work on that next.

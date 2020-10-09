@@ -131,37 +131,20 @@ global $style_no;
 
                             if($wedding_booked == 1) {
                                 $wedding_booked = "Yes";
-                                $style_wedding_booked = $style_yes;
+                                $style_wedding_booked = $style_yes . " class='align-middle'";
                             } else {
                                 $wedding_booked = "No";
-                                $style_wedding_booked = $style_no;
+                                $style_wedding_booked = $style_no . " class='align-middle'";
                             }
 
-
-
+                            $bride_and_groom = $brides_forename . " " . $brides_surname . " and " . $grooms_forename . " " . $grooms_surname . " " . $preferred_contact;
 
                             echo "<tr>";
-                            echo "<td>$customer_id </td>";
-                            echo "<td>$brides_forename </td>";
-                            echo "<td>$brides_surname </td>";
-                            echo "<td>$brides_telephone</td>";
-                            echo "<td>$brides_email</td>";
-                            echo "<td>$grooms_forename </td>";
-                            echo "<td>$grooms_surname </td>";
-                            echo "<td>$grooms_telephone</td>";
-                            echo "<td>$grooms_email</td>";
-                            echo "<td>$preferred_contact</td>";
-                            echo "<td>$address_1</td>";
-                            echo "<td>$address_2</td>";
-                            echo "<td>$town_city</td>";
-                            echo "<td>$county</td>";
-                            echo "<td>$post_code</td>";
-                            echo "<td>$date_added</td>";
+                            echo "<td class='align-middle'>$bride_and_groom </td>";
                             echo "<td $style_wedding_booked>$wedding_booked</td>";
-                            
-
-                            echo "<td><a href='customer_details.php?source=edit_customer&edit_customer={$customer_id}'>Edit</a></td>"; // Edit
-                            echo "<td><a href='customer_details.php?delete={$customer_id}'>Delete</a></td>"; // Delete
+                            echo "<td class='align-middle'><a class='btn btn-primary' role='button' href='customer_details.php?source=edit_customer&edit_customer={$customer_id}'><i class='fas fa-eye'></i> View</a>
+                                <a class='btn btn-success' role='button' href='customer_details.php?source=edit_customer&edit_customer={$customer_id}'><i class='fas fa-user-edit'></i> Edit</a>
+                                <a class='btn btn-danger' role='button' href='customer_details.php?delete={$customer_id}'><i class='fas fa-trash-alt'></i> Delete</a></td>";
                             echo "</tr>";
                             }
 }

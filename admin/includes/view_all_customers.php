@@ -1,26 +1,12 @@
 
-<table class = "table table-bordered table-hover">
-                                <thead>
+<table class = "table table-bordered table-hover text-center">
+<caption>List of all the customers.</caption>
+                                <thead class="thead-dark">
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Brides Forename</th>
-                                        <th>Brides Surname</th>
-                                        <th>Brides Tele</th>
-                                        <th>Brides Email</th>
-                                        <th>Grooms Forename</th>
-                                        <th>Grooms Surname</th>
-                                        <th>Grooms Tele</th>
-                                        <th>Grooms Email</th> 
-                                        <th>Preferred Contact</th>
-                                        <th>Address 1</th>
-                                        <th>Address 2</th>
-                                        <th>Town or City</th>
-                                        <th>County</th>
-                                        <th>Post Code</th>
-                                        <th>Date Added</th>
-                                        <th>Wedding Booked</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        
+                                        <th class="align-middle">Bride and Groom</th>
+                                        <th class="align-middle" style="width: 100px;">Wedding Booked</th>
+                                        <th class="align-middle" style="width: 300px;">Operations</th>
                                         
                                     </tr>
                                 </thead>
