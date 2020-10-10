@@ -41,3 +41,11 @@
     margin: 60px 0 20px;
     border-bottom: 1px solid #eee;
   }
+
+  .brides-colour {
+    background-color: pink !important;
+  }
+
+  .grooms-colour {
+    background-color: lightskyblue !important;
+  }

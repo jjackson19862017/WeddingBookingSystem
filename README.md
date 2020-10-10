@@ -139,3 +139,24 @@ The View Button will bring up a customers profile page so that they can see all 
 Renamed the customers details page to just customers.
 
 Created a Customers View Page to show all the information relating to the bride and groom and if they have an event.
+
+### 17th - Added a way to Edit Customers Details
+
+I have added an accordion element onto one of the cards to display a form to edit the current bride and groom.
+
+I will leave in the Edit Button on the view_all_customers page, I will remove at a later date.
+
+
+
+
+
+
+
+
+
+
+## Removal of items
+
+### view_all_customers
+
+Edit Button
