@@ -21,9 +21,9 @@
           <i class="fa fa-user"></i> Customers
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="customer_details.php"><i class="fa fa-search-plus"></i> View All Customers</a>
+          <a class="dropdown-item" href="customers.php"><i class="fa fa-search-plus"></i> View All Customers</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="customer_details.php?source=add_customer"><i class="far fa-plus-square"></i></i> Add Customer</a>
+          <a class="dropdown-item" href="customers.php?source=add_customer"><i class="far fa-plus-square"></i></i> Add Customer</a>
         </div>
       </div>
   

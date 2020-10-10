@@ -137,14 +137,14 @@ global $style_no;
                                 $style_wedding_booked = $style_no . " class='align-middle'";
                             }
 
-                            $bride_and_groom = $brides_forename . " " . $brides_surname . " and " . $grooms_forename . " " . $grooms_surname . " " . $preferred_contact;
+                            $bride_and_groom = $brides_forename . " " . $brides_surname . " and " . $grooms_forename . " " . $grooms_surname . "<br>" . $preferred_contact;
 
                             echo "<tr>";
                             echo "<td class='align-middle'>$bride_and_groom </td>";
                             echo "<td $style_wedding_booked>$wedding_booked</td>";
-                            echo "<td class='align-middle'><a class='btn btn-primary' role='button' href='customer_details.php?source=edit_customer&edit_customer={$customer_id}'><i class='fas fa-eye'></i> View</a>
-                                <a class='btn btn-success' role='button' href='customer_details.php?source=edit_customer&edit_customer={$customer_id}'><i class='fas fa-user-edit'></i> Edit</a>
-                                <a class='btn btn-danger' role='button' href='customer_details.php?delete={$customer_id}'><i class='fas fa-trash-alt'></i> Delete</a></td>";
+                            echo "<td class='align-middle'><a class='btn btn-primary' role='button' href='customers.php?source=view_customer&view_customer={$customer_id}'><i class='fas fa-eye'></i> View</a>
+                                <a class='btn btn-success' role='button' href='customers.php?source=edit_customer&edit_customer={$customer_id}'><i class='fas fa-user-edit'></i> Edit</a>
+                                <a class='btn btn-danger' role='button' href='customers.php?delete={$customer_id}'><i class='fas fa-trash-alt'></i> Delete</a></td>";
                             echo "</tr>";
                             }
 }

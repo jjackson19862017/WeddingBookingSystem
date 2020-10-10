@@ -1,3 +1,9 @@
+<div class="jumbotron jumbotron-fluid mt-2 p-2">
+            <div class="container">
+                <h1 class="display-4">Editing Customer</h1>
+            </div>
+        </div>
+
 <?php
 
 if(isset($_GET['edit_customer'])) {
@@ -83,7 +89,7 @@ if(isset($_GET['edit_customer'])) {
         $update_customer_query = mysqli_query($connection, $query);
     
         confirmsQuery($update_customer_query); // Calls a function so that i can refer
-        header("Location: customer_details.php"); // Refreshes Page 
+        header("Location: customers.php"); // Refreshes Page 
         
     }
 

@@ -111,8 +111,8 @@
                             echo "<td>$post_code</td>";
                             echo "<td>$date_added</td>";
 
-                            echo "<td><a href='customer_details.php?source=edit_customer&edit_customer={$customer_id}'>Edit</a></td>"; // Edit
-                            echo "<td><a href='customer_details.php?delete={$customer_id}'>Delete</a></td>"; // Delete
+                            echo "<td><a href='customers.php?source=edit_customer&edit_customer={$customer_id}'>Edit</a></td>"; // Edit
+                            echo "<td><a href='customers.php?delete={$customer_id}'>Delete</a></td>"; // Delete
                             echo "</tr>";
                             
                             ?>
@@ -127,7 +127,7 @@
                                 $delete_customer_id = $_GET['delete'];
                                 $query = "DELETE FROM customers_details WHERE customer_id = {$delete_customer_id}";
                                 $deleteQuery = mysqli_query($connection, $query);
-                                header("Location: customer_details.php"); // Refreshes Page
+                                header("Location: customers.php"); // Refreshes Page
                             }
                             
                             

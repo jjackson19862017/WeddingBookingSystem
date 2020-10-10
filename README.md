@@ -133,3 +133,9 @@ Also added a font awesome icon to the search button.
 Modified View All Customers to show less information, to make it less confusing on the end user.
 
 The View Button will bring up a customers profile page so that they can see all their details, will work on that next.
+
+### 16th - Created Customers View Page
+
+Renamed the customers details page to just customers.
+
+Created a Customers View Page to show all the information relating to the bride and groom and if they have an event.

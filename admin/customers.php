@@ -6,11 +6,7 @@
     <?php include "includes/admin_navigation.php" ?>
         
 
-    <div class="jumbotron jumbotron-fluid mt-2 p-2">
-            <div class="container">
-                <h1 class="display-4">View All Customers</h1>
-            </div>
-        </div>
+    
                             
                             <?php 
                             
@@ -27,6 +23,10 @@
 
                                     case 'edit_customer';
                                     include "includes/edit_customer.php";
+                                    break;
+
+                                    case 'view_customer';
+                                    include "includes/view_customer.php";
                                     break;
 
                                     default:
