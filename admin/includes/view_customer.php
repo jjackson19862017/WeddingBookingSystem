@@ -57,7 +57,7 @@ if(isset($_GET['view_customer'])) {
                             $event_deposit_taken = $row['event_deposit_taken'];
                             $event_25_paid = $row['event_25_paid'];
                             $event_had_final_talk = $row['event_had_final_talk'];
-                            $event_subtotal = $row['event_subtotal'];
+                            $event_cost = $row['event_cost'];
                             $event_25_amount = $row['event_25_amount'];
                             $event_paid = $row['event_paid'];
                             $event_total_outstanding = $row['event_total_outstanding'];

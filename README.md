@@ -146,7 +146,9 @@ I have added an accordion element onto one of the cards to display a form to edi
 
 I will leave in the Edit Button on the view_all_customers page, I will remove at a later date.
 
+### 18th - Changed View All Weddings Frontend
 
+I have made the table more compact but still kept the original data viewable, I have also changed the order by the nearest wedding event at the top of the table.
 
 
 

@@ -26,7 +26,7 @@ if(isset($_GET['edit_wedding'])) {
                             $event_deposit_taken = $row['event_deposit_taken'];
                             $event_25_paid = $row['event_25_paid'];
                             $event_had_final_talk = $row['event_had_final_talk'];
-                            $event_subtotal = $row['event_subtotal'];
+                            $event_cost = $row['event_cost'];
                             $event_25_amount = $row['event_25_amount'];
                             $event_paid = $row['event_paid'];
                             $event_total_outstanding = $row['event_total_outstanding'];
@@ -57,7 +57,7 @@ if(isset($_GET['edit_wedding'])) {
         $event_deposit_taken = $_POST['event_deposit_taken'];
         $event_25_paid = $_POST['event_25_paid'];
         $event_had_final_talk = $_POST['event_had_final_talk'];
-        $event_subtotal = $_POST['event_subtotal'];
+        $event_cost = $_POST['event_cost'];
         $event_25_amount = $_POST['event_25_amount'];
         $event_paid = $_POST['event_paid'];
         $event_total_outstanding = $_POST['event_total_outstanding'];
@@ -81,7 +81,7 @@ if(isset($_GET['edit_wedding'])) {
         $query .= "event_deposit_taken = '{$event_deposit_taken}', ";
         $query .= "event_25_paid = '{$event_25_paid}', ";
         $query .= "event_had_final_talk = '{$event_had_final_talk}', ";
-        $query .= "event_subtotal = '{$event_subtotal}', ";
+        $query .= "event_cost = '{$event_cost}', ";
         $query .= "event_25_amount = '{$event_25_amount}', ";
         $query .= "event_paid = '{$event_paid}', ";
         $query .= "event_total_outstanding = '{$event_total_outstanding}' ";
@@ -290,8 +290,8 @@ if(isset($_GET['edit_wedding'])) {
     </div>
 
     <div class="form-group">
-        <label for="event_subtotal">Subtotal:</label>
-        <input type="text" name="event_subtotal" id="" class="form-control" value="<?php echo $event_subtotal?>">
+        <label for="event_cost">cost:</label>
+        <input type="text" name="event_cost" id="" class="form-control" value="<?php echo $event_cost?>">
     </div>
 
     <div class="form-group">

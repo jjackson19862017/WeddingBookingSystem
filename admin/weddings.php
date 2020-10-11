@@ -9,11 +9,7 @@
         
 
         
-    <div class="jumbotron jumbotron-fluid mt-2 p-2">
-            <div class="container">
-                <h1 class="display-4">View All Weddings</h1>
-            </div>
-        </div>
+    
                             
                             <?php 
                             

@@ -1,3 +1,9 @@
+<div class="jumbotron jumbotron-fluid mt-2 p-2">
+            <div class="container">
+                <h1 class="display-4">Add Quick Wedding</h1>
+            </div>
+        </div>
+
 <?php
 
     if(isset($_POST['create_wedding'])) 
@@ -176,8 +182,8 @@
     </div>
 
     <div class="form-group">
-        <label for="event_subtotal">Subtotal:</label>
-        <input type="text" name="event_subtotal" id="" class="form-control">
+        <label for="event_cost">cost:</label>
+        <input type="text" name="event_cost" id="" class="form-control">
     </div>
 
     <div class="form-group">

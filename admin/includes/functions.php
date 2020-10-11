@@ -240,7 +240,7 @@ function view_all_weddings()
 { global $connection;
     global $style_yes;
 global $style_no;
-    $query = "SELECT * FROM event_details";
+    $query = "SELECT * FROM event_details ORDER BY event_function_date ASC";
 
                             $select_event = mysqli_query($connection, $query);
 
@@ -263,7 +263,7 @@ global $style_no;
                             $event_deposit_taken = $row['event_deposit_taken'];
                             $event_25_paid = $row['event_25_paid'];
                             $event_had_final_talk = $row['event_had_final_talk'];
-                            $event_subtotal = $row['event_subtotal'];
+                            $event_cost = $row['event_cost'];
                             $event_25_amount = $row['event_25_amount'];
                             $event_paid = $row['event_paid'];
                             $event_total_outstanding = $row['event_total_outstanding'];
@@ -276,10 +276,13 @@ global $style_no;
                             {
                         
                                 $brides_forename = $row['brides_forename'];
+                                $brides_surname = $row['brides_surname'];
                                 $grooms_forename = $row['grooms_forename'];
+                                $grooms_surname = $row['grooms_surname'];
+
                             }
                             
-                            $bride_and_groom = $brides_forename . " and " . $grooms_forename;
+                            $bride_and_groom = $brides_forename . " " . $brides_surname . "<br>and<br> " . $grooms_forename . " " . $grooms_surname;
                         
                             
 
@@ -333,33 +336,22 @@ global $style_no;
                                 $style_had_final_talk = $style_no;
                             }
 
-
+                            $event_function_date = date_format(new DateTime($event_function_date),"D d M Y");
+                            $event_appointment_date = date_format(new DateTime($event_appointment_date),"D d M Y");
+                            $event_hold_till_date = date_format(new DateTime($event_hold_till_date),"D d M Y");
+                            $event_contract_issued_date = date_format(new DateTime($event_contract_issued_date),"D d M Y");
+                            $event_deposit_taken_date = date_format(new DateTime($event_deposit_taken_date),"D d M Y");
+                            $event_25_due_date = date_format(new DateTime($event_25_due_date),"D d M Y");
+                            $event_final_wedding_talk_date = date_format(new DateTime($event_final_wedding_talk_date),"D d M Y");
+                            $event_final_payment_date = date_format(new DateTime($event_final_payment_date),"D d M Y");
 
                             echo "<tr>";
-                            echo "<td>$event_id </td>";
-                            echo "<td>$bride_and_groom </td>";
-                            echo "<td>$event_appointment_date </td>";
-                            echo "<td>$event_hold_till_date</td>";
-                            echo "<td>$event_contract_issued_date</td>";
-                            echo "<td>$event_function_date </td>";
-                            echo "<td>$event_deposit_taken_date </td>";
-                            echo "<td>$event_25_due_date</td>";
-                            echo "<td>$event_final_wedding_talk_date</td>";
-                            echo "<td>$event_final_payment_date</td>";
-                            echo "<td $style_hold>$event_hold</td>";
-                            echo "<td $style_contract_returned>$event_contract_returned</td>";
-                            echo "<td $style_agreement_signed>$event_agreement_signed</td>";
-                            echo "<td $style_deposit_taken>$event_deposit_taken</td>";
-                            echo "<td $style_25_paid>$event_25_paid</td>";
-                            echo "<td $style_had_final_talk>$event_had_final_talk</td>";
-                            echo "<td>£$event_subtotal</td>";
-                            echo "<td>£$event_25_amount</td>";
-                            echo "<td>£$event_paid</td>";
-                            echo "<td>£$event_total_outstanding</td>";
-
-
-                            echo "<td><a href='weddings.php?source=edit_wedding&edit_wedding={$event_id}'>Edit</a></td>"; // Edit
-                            echo "<td><a href='weddings.php?delete={$event_id}'>Delete</a></td>"; // Delete
+                            echo "<td>$bride_and_groom<br>$event_function_date<br><br></td>";
+                            echo "<td>Appointment: $event_appointment_date <br>Hold Till: $event_hold_till_date<br>Contract Issued: $event_contract_issued_date<br>Deposit Taken: $event_deposit_taken_date<br>25% Due: $event_25_due_date <br>Final Talk: $event_final_wedding_talk_date <br>Final Payment: $event_final_payment_date</td>";
+                            echo "<td><br><span $style_hold>On Hold: $event_hold</span><br><span $style_agreement_signed>Signed: $event_agreement_signed</span><br><span $style_deposit_taken>Deposit Paid: $event_deposit_taken</span><br><span $style_25_paid>Paid: $event_25_paid</span><br><span $style_had_final_talk>Done: $event_had_final_talk</span></td>";
+                     
+                            echo "<td><br>Cost: £$event_cost <br> 25%: £$event_25_amount <br> Paid: £$event_paid <br> Left: £$event_total_outstanding </td>";
+                            echo "<td><a class='btn btn-primary btn-block' role='button' href='customers.php?source=view_customer&view_customer={$event_customer_id}'><i class='fas fa-eye'></i> View Customer</a><br><a class='btn btn-block btn-success' role='button' href='weddings.php?source=edit_wedding&edit_wedding={$event_id}'><i class='fas fa-edit'></i> Edit</a><br><a class='btn btn-danger btn-block' role='button' href='weddings.php?delete={$event_id}&customer_id={$event_customer_id}'><i class='fas fa-trash-alt'></i> Delete</a></td>"; // Edit
                             echo "</tr>";
                             }
 }

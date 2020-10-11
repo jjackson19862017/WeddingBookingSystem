@@ -1,3 +1,9 @@
+<div class="jumbotron jumbotron-fluid mt-2 p-2">
+            <div class="container">
+                <h1 class="display-4">Add Wedding</h1>
+            </div>
+        </div>
+
 <?php
 
     if(isset($_POST['create_wedding'])) 
@@ -18,13 +24,13 @@
         $event_deposit_taken = $_POST['event_deposit_taken'];
         $event_25_paid = $_POST['event_25_paid'];
         $event_had_final_talk = $_POST['event_had_final_talk'];
-        $event_subtotal = $_POST['event_subtotal'];
+        $event_cost = $_POST['event_cost'];
         $event_25_amount = $_POST['event_25_amount'];
         $event_paid = $_POST['event_paid'];
         $event_total_outstanding = $_POST['event_total_outstanding'];
 
-        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_contract_issued_date, event_function_date, event_deposit_taken_date, event_25_due_date, event_final_wedding_talk_date, event_final_payment_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_subtotal,event_25_amount,event_paid,event_total_outstanding) ";
-        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}','{$event_contract_issued_date}','{$event_function_date}','{$event_deposit_taken_date}','{$event_25_due_date}','{$event_final_wedding_talk_date}', '{$event_final_payment_date}', '{$event_hold}', '{$event_contract_returned}','{$event_agreement_signed}','{$event_deposit_taken}','{$event_25_paid}','{$event_had_final_talk}', '{$event_subtotal}','{$event_25_amount}','{$event_paid}','{$event_total_outstanding}') ";
+        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_contract_issued_date, event_function_date, event_deposit_taken_date, event_25_due_date, event_final_wedding_talk_date, event_final_payment_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_cost,event_25_amount,event_paid,event_total_outstanding) ";
+        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}','{$event_contract_issued_date}','{$event_function_date}','{$event_deposit_taken_date}','{$event_25_due_date}','{$event_final_wedding_talk_date}', '{$event_final_payment_date}', '{$event_hold}', '{$event_contract_returned}','{$event_agreement_signed}','{$event_deposit_taken}','{$event_25_paid}','{$event_had_final_talk}', '{$event_cost}','{$event_25_amount}','{$event_paid}','{$event_total_outstanding}') ";
         $create_wedding_query = mysqli_query($connection, $query);
         confirmsQuery($create_wedding_query); // Calls a function so that i can refer 
     
@@ -179,8 +185,8 @@
     </div>
 
     <div class="form-group">
-        <label for="event_subtotal">Subtotal:</label>
-        <input type="text" name="event_subtotal" id="" class="form-control">
+        <label for="event_cost">cost:</label>
+        <input type="text" name="event_cost" id="" class="form-control">
     </div>
 
     <div class="form-group">
