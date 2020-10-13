@@ -35,8 +35,7 @@
           <a class="dropdown-item" href="weddings.php"><i class="fa fa-search-plus"></i> View All Weddings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="weddings.php?source=add_wedding"><i class="fa fa-calendar-plus"></i> Add Wedding</a>
-          <a class="dropdown-item" href="weddings.php?source=add_wedding_quick"><i class="fa fa-calendar-plus"></i> Add Wedding Quick</a>
-
+          
         </div>
       </div>
 

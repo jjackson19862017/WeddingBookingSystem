@@ -20,7 +20,7 @@ $total_wedding_events_on_hold = mysqli_num_rows($select_all_hold_events);
     <caption>A table showing all the weddings booked</caption>
     <thead class="thead-dark">
                                     <tr>
-                                        <th class="align-middle">Customer Id</th>
+                                        <th class="align-middle">Customer Info</th>
                                         <th class="align-middle" style="width: 350px;">Dates</th>
                                         <th class="align-middle" style="width: 200px;">Status</th>
                                         <th class="align-middle" style="width: 250px;">Finances</th>

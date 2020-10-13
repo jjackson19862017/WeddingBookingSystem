@@ -150,9 +150,13 @@ I will leave in the Edit Button on the view_all_customers page, I will remove at
 
 I have made the table more compact but still kept the original data viewable, I have also changed the order by the nearest wedding event at the top of the table.
 
+### 19th - Added Cards to Index, Updated Wedding Section
 
+I have added cards to the index (dashboard) so that at a glance users can see where we are upto.
 
+I have changed some of the View All Wedding Table Headers and taken off the option to say yes or no, it will be yes automatically.
 
+I have also added a quick add wedding form into the index and removed the option from the navigation bar.
 
 
 
@@ -162,3 +166,8 @@ I have made the table more compact but still kept the original data viewable, I 
 ### view_all_customers
 
 Edit Button
+
+
+
+### Files
+add_wedding_quick.php

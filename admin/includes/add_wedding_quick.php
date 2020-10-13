@@ -17,10 +17,10 @@
         $event_hold_till_date = date_format($event_hold_till_date,"Y-m-d");
 
         
-        $event_hold = $_POST['event_hold'];
+        
 
         $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_hold) ";
-        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}', '{$event_hold}') ";
+        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}', 1) ";
 
         $create_wedding_query = mysqli_query($connection, $query);
 
@@ -109,7 +109,7 @@
     <div class="form-group">
         <label for="event_final_payment_date">Final Payment Date</label>
         <input type="date" name="event_final_payment_date" id="" class="form-control">
-    </div> -->
+    </div> 
 
     <div class="form-group">
         <label for="event_hold">On Hold?<br></label>
@@ -119,7 +119,7 @@
             <input class="form-check-input" type="radio" name="event_hold" id="inlineRadio2" value="0">
             <label class="form-check-label" for="inlineRadio2">No</label>
         </div>
-    </div>
+    </div> -->
 
     <!-- Unrequired
     <div class="form-group">

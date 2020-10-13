@@ -9,6 +9,11 @@
     if(isset($_POST['create_wedding'])) 
     {
     
+//        date_add($event_hold_till_date, date_interval_create_from_date_string("14 Days"));
+
+
+
+
         $event_customer_id = $_POST['event_customer_id'];
         $event_appointment_date = $_POST['event_appointment_date'];
         $event_hold_till_date = $_POST['event_hold_till_date'];
