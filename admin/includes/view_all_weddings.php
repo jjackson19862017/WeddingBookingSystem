@@ -7,14 +7,30 @@ $total_wedding_events_on_hold = mysqli_num_rows($select_all_hold_events);
 
 
 <div class="jumbotron jumbotron-fluid mt-2 p-2">
-            <div class="container">
-                <h1 class="display-4"><?php if($total_wedding_events_on_hold === 0) 
-                {echo "NO WEDDINGS BOOKED";}
-                elseif($total_wedding_events_on_hold === 1)
-                {echo "You have 1 wedding booked";}
-                else {echo "You have " . $total_wedding_events_on_hold . " weddings booked";} ?> </h1>
-            </div>
+    <div class="container">
+        <h1 class="display-4"><?php if($total_wedding_events_on_hold === 0) 
+        {echo "NO WEDDINGS BOOKED";}
+        elseif($total_wedding_events_on_hold === 1)
+        {echo "You have 1 wedding booked";}
+        else {echo "You have " . $total_wedding_events_on_hold . " weddings booked";} ?> </h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+        <button type="button" class="btn btn-secondary btn-block">Secondary</button>
         </div>
+        <div class="col-xs-6 col-md-3">
+        <button type="button" class="btn btn-secondary btn-block">Secondary</button>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <button type="button" class="btn btn-secondary btn-block">Secondary</button>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <button type="button" class="btn btn-secondary btn-block">Secondary</button>
+        </div>
+    </div>
+</div>
+
+
 
 <table class = "table table-bordered table-hover text-center">
     <caption>A table showing all the weddings booked</caption>

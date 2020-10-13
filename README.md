@@ -166,9 +166,19 @@ I have added more cards to the index page to increase users awareness of the cur
 
 I have added more information to the cards that populate the index, this inculdes the couples names and links to their details.
 
-### 22ND - Added Update Event Function Date to Dashboard
+### 22nd - Added Update Event Function Date to Dashboard
 
 I have created a small form to sit underneath the set appointment form, so that users can book weddings in.
+
+### 23rd - Little Fixes
+
+I have changed the subtotal variable to cost, as later when I introduce a cash tracking system.  This will be less confusing.
+
+I have added buttons on the view all weddings, for different queries in the future.
+
+I have changed the admin title on the window.
+
+I have added a input date field for contract issued date.
 
 ## Removal of items
 

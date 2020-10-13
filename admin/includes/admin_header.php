@@ -25,7 +25,7 @@ if(!isset($_SESSION['wbs_user_role'])) { // If the role isnt set then
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>WBS Admin</title>
 
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 

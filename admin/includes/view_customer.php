@@ -1,5 +1,3 @@
-
-
 <?php
 $style_yes = "class='card-text text-success'";
 $style_no = "class='card-text text-danger'";
@@ -57,7 +55,7 @@ if(isset($_GET['view_customer'])) {
                             $event_deposit_taken = $row['event_deposit_taken'];
                             $event_25_paid = $row['event_25_paid'];
                             $event_had_final_talk = $row['event_had_final_talk'];
-                            $event_subtotal = $row['event_subtotal'];
+                            $event_cost = $row['event_cost'];
                             $event_25_amount = $row['event_25_amount'];
                             $event_paid = $row['event_paid'];
                             $event_total_outstanding = $row['event_total_outstanding'];
@@ -154,9 +152,6 @@ if(isset($_GET['view_customer'])) {
         $query .= "wedding_booked = '{$wedding_booked}' ";
 
         $query .= "WHERE customer_id = {$the_customer_id} ";
-    
-        
-        
     
         $update_customer_query = mysqli_query($connection, $query);
     

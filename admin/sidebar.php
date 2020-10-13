@@ -135,6 +135,7 @@
         $event_25_due_date = date_create($event_function_date);
         $event_final_wedding_talk_date = date_create($event_function_date);
         $event_final_payment_date = date_create($event_function_date);
+        $event_contract_issued_date = $_POST['event_contract_issued_date'];
 
         
         date_sub($event_25_due_date, date_interval_create_from_date_string("90 days"));
@@ -150,6 +151,7 @@
         $query .= "event_function_date = '{$event_function_date}', ";
         $query .= "event_25_due_date = '{$event_25_due_date}', ";
         $query .= "event_final_wedding_talk_date = '{$event_final_wedding_talk_date}', ";
+        $query .= "event_contract_issued_date = '{$event_contract_issued_date}', ";
         $query .= "event_final_payment_date = '{$event_final_payment_date}' ";
         $query .= "WHERE event_id = '{$event_id}' ";
         
@@ -173,6 +175,14 @@
             </div>
             <div class="col-md-5">
                 <input type="date" name="event_function_date" id="" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-7">
+                <label class="align-middle" for="event_contract_issued_date">Contract Issued Date: </label>
+            </div>
+            <div class="col-md-5">
+                <input type="date" name="event_contract_issued_date" id="" class="form-control">
             </div>
         </div>
         <!-- /Form-row -->
