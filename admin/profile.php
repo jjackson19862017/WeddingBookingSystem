@@ -20,22 +20,7 @@ $username = $_SESSION['wbs_username'];
         
         if(isset($_POST['edit_user'])) 
         {
-            $user_username = $_POST['user_username'];
-            $user_password = $_POST['user_password'];
-            $user_role = $_POST['user_role'];
-            $user_randSalt = $_POST['user_randSalt'];
-
-            $query = "UPDATE users SET ";
-            $query .= "user_username = '{$user_username}', ";
-            $query .= "user_password = '{$user_password}', ";
-            $query .= "user_role = '{$user_role}', ";
-            $query .= "user_randSalt = '{$user_randSalt}' ";
-            $query .= "WHERE user_id = {$user_id} ";
-
-    $update_user_query = mysqli_query($connection, $query);
-
-    confirmsQuery($update_user_query); // Calls a function so that i can refer
-    header("Location: profile.php"); // Refreshes Page 
+            edit_user($user_id);
     }
 }
 
@@ -47,19 +32,16 @@ $username = $_SESSION['wbs_username'];
 
         <!-- Navigation -->
     <?php include "includes/admin_navigation.php" ?>
-        
-
-      
 
     <div class="jumbotron jumbotron-fluid mt-2 p-2">
             <div class="container">
                 <h1 class="display-4"><?php echo $username ?></h1>
             </div>
         </div>
-                            
-                            <div class="col-xs-12 col-md-12">
-
-<form class="well" action="" method="post" enctype="multipart/form-data">
+<div class="row">                            
+<div class="col-xs-12 col-md-3"></div>
+<div class="col-xs-12 col-md-6">
+<form class="well" action="" method="post">
 
     <div class="form-group">
         <label for="user_username">Username</label>
@@ -88,6 +70,9 @@ $username = $_SESSION['wbs_username'];
     </div>
 
 </form>
+</div>
+<div class="col-xs-12 col-md-3">
+</div>
 </div>
 
 

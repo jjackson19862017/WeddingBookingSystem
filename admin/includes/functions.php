@@ -100,33 +100,21 @@ function select_role()
 
 }
 
-function view_all_customers()
+function view_all_customers($query)
 { global $connection;
 global $style_yes;
 global $style_no;
-    $query = "SELECT * FROM customers_details";
+    
 
-                            $selectusers = mysqli_query($connection, $query);
-
-                            while($row = mysqli_fetch_assoc($selectusers)) 
+                            while($row = mysqli_fetch_assoc($query)) 
                             {
                         
                             $customer_id = $row['customer_id'];
                             $brides_forename = $row['brides_forename'];
                             $brides_surname = $row['brides_surname'];
-                            $brides_telephone = $row['brides_telephone'];
-                            $brides_email = $row['brides_email'];
                             $grooms_forename = $row['grooms_forename'];
                             $grooms_surname = $row['grooms_surname'];
-                            $grooms_telephone = $row['grooms_telephone'];
-                            $grooms_email = $row['grooms_email'];
                             $preferred_contact = $row['preferred_contact'];
-                            $address_1 = $row['address_1'];
-                            $address_2 = $row['address_2'];
-                            $town_city = $row['town_city'];
-                            $county = $row['county'];
-                            $post_code = $row['post_code'];
-                            $date_added = $row['date_added'];
                             $wedding_booked = $row['wedding_booked'];
 
                             if($wedding_booked == 1) {
@@ -366,6 +354,124 @@ function uncompletedCustomers($minus) {
                             $total_customers = mysqli_num_rows($select_all_customers);
                             echo $total_customers - $minus;
 }
+
+
+// WEDDING RELATED FUNCTIONS
+
+function create_appointment() {
+    // Takes a couples customer id and updates the events table.
+    global $connection;
+
+    $event_customer_id = $_POST['event_customer_id'];
+        $event_appointment_date = $_POST['event_appointment_date'];
+        
+        $event_hold_till_date = date_create($event_appointment_date);
+        date_add($event_hold_till_date, date_interval_create_from_date_string("14 Days"));
+        $event_hold_till_date = date_format($event_hold_till_date,"Y-m-d");
+        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_cost, event_25_amount, event_paid, event_total_outstanding) ";
+        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0) ";
+
+        $create_wedding_query = mysqli_query($connection, $query);
+
+        confirmsQuery($create_wedding_query); // Calls a function so that i can refer 
+
+        $query = "UPDATE customers_details SET wedding_booked = 1 WHERE customer_id = $event_customer_id";
+        $wedding_booked_Query = mysqli_query($connection, $query);
+        confirmsQuery($wedding_booked_Query);
+
+        header("Location: index.php"); // Refreshes Page
+}
+
+function create_quick_wedding() {
+    global $connection;
+        $event_customer_id = $_POST['event_customer_id'];
+        $event_appointment_date = $_POST['event_appointment_date'];
+        
+        $event_hold_till_date = date_create($event_appointment_date);
+        date_add($event_hold_till_date, date_interval_create_from_date_string("14 Days"));
+        $event_hold_till_date = date_format($event_hold_till_date,"Y-m-d");
+        $event_contract_returned = $_POST['event_contract_returned'];
+        $event_agreement_signed = $_POST['event_agreement_signed'];
+        $event_deposit_taken = $_POST['event_deposit_taken'];
+        $event_25_paid = $_POST['event_25_paid'];
+        
+        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_cost, event_25_amount, event_paid, event_total_outstanding) ";
+        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0) ";
+
+        $create_wedding_query = mysqli_query($connection, $query);
+
+        confirmsQuery($create_wedding_query); // Calls a function so that i can refer 
+
+        $query = "UPDATE customers_details SET wedding_booked = 1 WHERE customer_id = $event_customer_id";
+        $wedding_booked_Query = mysqli_query($connection, $query);
+        confirmsQuery($wedding_booked_Query);
+
+        header("Location: weddings.php"); // Refreshes Page 
+}
+
+function updates_function_date($event_customer_id,$event_id) {
+global $connection;
+
+        $event_customer_id = $_POST['event_customer_id'];
+        $event_function_date = $_POST['event_function_date'];   
+        $event_contract_issued_date = $_POST['event_contract_issued_date'];
+
+        $event_25_due_date = date_create($event_function_date);
+        date_sub($event_25_due_date, date_interval_create_from_date_string("90 days"));
+        $event_25_due_date = date_format($event_25_due_date,"Y-m-d");
+        
+        $event_final_wedding_talk_date = date_create($event_function_date);
+        date_sub($event_final_wedding_talk_date, date_interval_create_from_date_string("42 days"));
+        $event_final_wedding_talk_date = date_format($event_final_wedding_talk_date,"Y-m-d");
+        
+        $event_final_payment_date = date_create($event_function_date);
+        date_sub($event_final_payment_date, date_interval_create_from_date_string("30 days"));
+        $event_final_payment_date = date_format($event_final_payment_date,"Y-m-d");
+
+        $query = "UPDATE event_details SET ";
+        $query .= "event_function_date = '{$event_function_date}', ";
+        $query .= "event_25_due_date = '{$event_25_due_date}', ";
+        $query .= "event_final_wedding_talk_date = '{$event_final_wedding_talk_date}', ";
+        $query .= "event_contract_issued_date = '{$event_contract_issued_date}', ";
+        $query .= "event_final_payment_date = '{$event_final_payment_date}' ";
+        $query .= "WHERE event_id = '{$event_id}' ";
+        
+        $update_event_function_date_query = mysqli_query($connection, $query);
+        confirmsQuery($update_event_function_date_query);
+        header("Location: index.php"); // Refreshes Page 
+
+
+}
+
+
+
+// EDITING RELATED FUNCTIONS
+
+// Edit Users Profile
+
+function edit_user($user_id) {
+    global $connection;
+    
+        $user_username = $_POST['user_username'];
+            $user_password = $_POST['user_password'];
+            $user_role = $_POST['user_role'];
+            $user_randSalt = $_POST['user_randSalt'];
+
+            $query = "UPDATE wbs_users SET ";
+            $query .= "user_username = '{$user_username}', ";
+            $query .= "user_password = '{$user_password}', ";
+            $query .= "user_role = '{$user_role}', ";
+            $query .= "user_randSalt = '{$user_randSalt}' ";
+            $query .= "WHERE user_id = {$user_id} ";
+
+    $update_user_query = mysqli_query($connection, $query);
+
+    confirmsQuery($update_user_query); // Calls a function so that i can refer
+    header("Location: users.php"); // Refreshes Page 
+}
+
+
+
 
 
 ?>

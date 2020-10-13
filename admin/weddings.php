@@ -21,19 +21,19 @@
                                 switch($source ) {
 
                                     case 'add_wedding';
-                                    include "includes/add_wedding.php";
+                                    include "includes/adds/add_wedding.php";
                                     break;
 
                                     case 'add_wedding_quick';
-                                    include "includes/add_wedding_quick.php";
+                                    include "includes/adds/add_wedding_quick.php";
                                     break;
 
                                     case 'edit_wedding';
-                                    include "includes/edit_wedding.php";
+                                    include "includes/edits/edit_wedding.php";
                                     break;
 
                                     default:
-                                    include "includes/view_all_weddings.php";
+                                    include "includes/views/view_all_weddings.php";
                                     break;
 
 

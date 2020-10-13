@@ -180,6 +180,14 @@ I have changed the admin title on the window.
 
 I have added a input date field for contract issued date.
 
+### 24th - Cleaning up my code
+
+I have tried to clean up my code for readability and reproduction.
+
+I have also added a signed button to quickly indicate that that contract has been returned and signed.
+
+I have also rearranged my includes folder in the admin section for better organision.
+
 ## Removal of items
 
 ### view_all_customers
