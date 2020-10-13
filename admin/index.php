@@ -24,10 +24,11 @@
                             $query = "SELECT * FROM customers_details WHERE wedding_booked = 0";
                             $select_all_unbooked_events = mysqli_query($connection,$query);
                             $total_unbooked_events = mysqli_num_rows($select_all_unbooked_events);
+
                             if($total_unbooked_events == 0){
                                 echo "Everyones Booked";
                             } else { echo $total_unbooked_events;
-                            uncompletedCustomers(0);
+                
                             }
                         ?>
                         </h5>
