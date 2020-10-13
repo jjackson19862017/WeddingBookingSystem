@@ -158,7 +158,9 @@ I have changed some of the View All Wedding Table Headers and taken off the opti
 
 I have also added a quick add wedding form into the index and removed the option from the navigation bar.
 
+### 20th - Increased Index Cards
 
+I have added more cards to the index page to increase users awareness of the current outstanding items that need to be addressed.
 
 
 ## Removal of items

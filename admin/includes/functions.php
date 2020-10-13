@@ -358,7 +358,13 @@ global $style_no;
 
 
 
-
+function uncompletedCustomers(){
+    global $connection;
+                            echo " / ";
+                            $query = "SELECT * FROM customers_details WHERE customer_event_complete = 0";
+                            $select_all_customers = mysqli_query($connection,$query);
+                            echo $total_customers = mysqli_num_rows($select_all_customers);
+}
 
 
 ?>

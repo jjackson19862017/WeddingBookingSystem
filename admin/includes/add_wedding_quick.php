@@ -15,12 +15,15 @@
         $event_hold_till_date = date_create($event_appointment_date);
         date_add($event_hold_till_date, date_interval_create_from_date_string("14 Days"));
         $event_hold_till_date = date_format($event_hold_till_date,"Y-m-d");
-
+        $event_contract_returned = $_POST['event_contract_returned'];
+        $event_agreement_signed = $_POST['event_agreement_signed'];
+        $event_deposit_taken = $_POST['event_deposit_taken'];
+        $event_25_paid = $_POST['event_25_paid'];
         
         
 
-        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_hold) ";
-        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}', 1) ";
+        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_cost, event_25_amount, event_paid, event_total_outstanding) ";
+        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0) ";
 
         $create_wedding_query = mysqli_query($connection, $query);
 
