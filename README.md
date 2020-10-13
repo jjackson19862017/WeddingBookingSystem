@@ -162,6 +162,9 @@ I have also added a quick add wedding form into the index and removed the option
 
 I have added more cards to the index page to increase users awareness of the current outstanding items that need to be addressed.
 
+### 21st - More Details to Index Cards
+
+I have added more information to the cards that populate the index, this inculdes the couples names and links to their details.
 
 ## Removal of items
 

@@ -27,7 +27,7 @@
         $wedding_booked_Query = mysqli_query($connection, $query);
         confirmsQuery($wedding_booked_Query);
 
-        header("Location: weddings.php"); // Refreshes Page 
+        header("Location: index.php"); // Refreshes Page 
     }
 
 
