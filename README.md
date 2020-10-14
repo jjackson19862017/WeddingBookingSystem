@@ -188,6 +188,10 @@ I have also added a signed button to quickly indicate that that contract has bee
 
 I have also rearranged my includes folder in the admin section for better organision.
 
+### 25th - Changed Add Customer Page
+
+I changed the add customer page, into there respective form files and functions.
+
 ## Removal of items
 
 ### view_all_customers

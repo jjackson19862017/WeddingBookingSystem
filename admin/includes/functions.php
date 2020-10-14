@@ -443,6 +443,37 @@ global $connection;
 
 }
 
+// ADDING RELATED FUNCTIONS
+
+// Add Customers
+
+function create_customer() {
+    global $connection;
+    $brides_forename = $_POST['brides_forename'];
+        $brides_surname = $_POST['brides_surname'];
+        $brides_telephone = $_POST['brides_telephone'];
+        $brides_email = $_POST['brides_email'];
+        $grooms_forename = $_POST['grooms_forename'];
+        $grooms_surname = $_POST['grooms_surname'];
+        $grooms_telephone = $_POST['grooms_telephone'];
+        $grooms_email = $_POST['grooms_email'];
+        $preferred_contact = $_POST['preferred_contact'];
+        $address_1 = $_POST['address_1'];
+        $address_2 = $_POST['address_2'];
+        $town_city = $_POST['town_city'];
+        $county = $_POST['county'];
+        $post_code = $_POST['post_code'];
+        $date_added = date('d-m-y');
+        $wedding_booked = 0;
+
+        $query = "INSERT INTO customers_details(brides_forename, brides_surname, brides_telephone, brides_email, grooms_forename, grooms_surname, grooms_telephone, grooms_email, preferred_contact, address_1, address_2, town_city, county, post_code, date_added, wedding_booked) ";
+        $query .= "VALUES('{$brides_forename}','{$brides_surname}','{$brides_telephone}','{$brides_email}','{$grooms_forename}','{$grooms_surname}','{$grooms_telephone}','{$grooms_email}', '{$preferred_contact}', '{$address_1}','{$address_2}','{$town_city}','{$county}','{$post_code}',now(),$wedding_booked ) ";
+
+        $create_customer_query = mysqli_query($connection, $query);
+
+        confirmsQuery($create_customer_query); // Calls a function so that i can refer 
+        header("Location: index.php"); // Refreshes Page 
+}
 
 
 // EDITING RELATED FUNCTIONS

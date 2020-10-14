@@ -1,6 +1,7 @@
 <form action="" method="post">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6 well">
+                <div class="col-xs-12 col-md-5 well mx-auto">
+
                        <div class="form-group form-inline">
                             <label for="brides_forename">Brides Forename</label>
                             <input type="text" name="brides_forename" id="" class="form-control" value="<?php echo $brides_forename?>">
@@ -18,7 +19,8 @@
                             <input type="email" name="brides_email" id="" class="form-control" value="<?php echo $brides_email?>">
                         </div>
                     </div>
-                    <div class="col-xs-12 col-md-6 well ">
+                    <div class="col-xs-12 col-md-5 well mx-auto">
+
                         <div class="form-group form-inline">
                             <label for="grooms_forename">Grooms Forename</label>
                             <input type="text" name="grooms_forename" id="" class="form-control"value="<?php echo $grooms_forename?>">
@@ -38,7 +40,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-md-6 well">
+                <div class="col-xs-12 col-md-5 well mx-auto">
+
                         <div class="form-group form-inline">
                             <label for="address_1">Address 1</label>
                             <input type="text" name="address_1" id="" class="form-control" value="<?php echo $address_1?>">
@@ -60,7 +63,8 @@
                             <input type="text" name="post_code" id="" class="form-control" value="<?php echo $post_code?>">
                         </div>
                     </div>
-                    <div class="col-xs-12 col-md-6 well">
+                    <div class="col-xs-12 col-md-5 well mx-auto">
+
                         <div class="form-group form-inline">
                             <label for="preferred_contact">Preferred Contact</label>
                             <input type="text" name="preferred_contact" id="" class="form-control" value="<?php echo $preferred_contact?>">
