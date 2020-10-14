@@ -475,6 +475,41 @@ function create_customer() {
         header("Location: index.php"); // Refreshes Page 
 }
 
+// Add Wedding
+
+function create_wedding() {
+    global $connection;
+    $event_customer_id = $_POST['event_customer_id'];
+    $event_appointment_date = $_POST['event_appointment_date'];
+    $event_hold_till_date = $_POST['event_hold_till_date'];
+    $event_contract_issued_date = $_POST['event_contract_issued_date'];
+    $event_function_date = $_POST['event_function_date'];
+    $event_deposit_taken_date = $_POST['event_deposit_taken_date'];
+    $event_25_due_date = $_POST['event_25_due_date'];
+    $event_final_wedding_talk_date = $_POST['event_final_wedding_talk_date'];
+    $event_final_payment_date = $_POST['event_final_payment_date'];
+    $event_hold = $_POST['event_hold'];
+    $event_contract_returned = $_POST['event_contract_returned'];
+    $event_agreement_signed = $_POST['event_agreement_signed'];
+    $event_deposit_taken = $_POST['event_deposit_taken'];
+    $event_25_paid = $_POST['event_25_paid'];
+    $event_had_final_talk = $_POST['event_had_final_talk'];
+    $event_cost = $_POST['event_cost'];
+    $event_25_amount = $_POST['event_25_amount'];
+    $event_paid = $_POST['event_paid'];
+    $event_total_outstanding = $_POST['event_total_outstanding'];
+
+    $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_contract_issued_date, event_function_date, event_deposit_taken_date, event_25_due_date, event_final_wedding_talk_date, event_final_payment_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_cost,event_25_amount,event_paid,event_total_outstanding) ";
+    $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}','{$event_contract_issued_date}','{$event_function_date}','{$event_deposit_taken_date}','{$event_25_due_date}','{$event_final_wedding_talk_date}', '{$event_final_payment_date}', '{$event_hold}', '{$event_contract_returned}','{$event_agreement_signed}','{$event_deposit_taken}','{$event_25_paid}','{$event_had_final_talk}', '{$event_cost}','{$event_25_amount}','{$event_paid}','{$event_total_outstanding}') ";
+    $create_wedding_query = mysqli_query($connection, $query);
+    confirmsQuery($create_wedding_query); // Calls a function so that i can refer 
+
+    $query = "UPDATE customers_details SET wedding_booked = 1 WHERE customer_id = $event_customer_id";
+                            $wedding_booked_Query = mysqli_query($connection, $query);
+                            confirmsQuery($wedding_booked_Query);
+
+                        }
+
 
 // EDITING RELATED FUNCTIONS
 

@@ -192,6 +192,10 @@ I have also rearranged my includes folder in the admin section for better organi
 
 I changed the add customer page, into there respective form files and functions.
 
+### 26th - Changed Add Weddings Page
+
+I changed the add weddings page, into there respective form files and functions.
+
 ## Removal of items
 
 ### view_all_customers
