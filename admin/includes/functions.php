@@ -252,6 +252,8 @@ global $style_no;
                             $event_25_paid = $row['event_25_paid'];
                             $event_had_final_talk = $row['event_had_final_talk'];
                             $event_cost = $row['event_cost'];
+                            $event_deposit_amount = $row['event_deposit_amount'];
+
                             $event_25_amount = $row['event_25_amount'];
                             $event_paid = $row['event_paid'];
                             $event_total_outstanding = $row['event_total_outstanding'];
@@ -338,7 +340,7 @@ global $style_no;
                             echo "<td>Appointment: $event_appointment_date <br>Hold Till: $event_hold_till_date<br>Contract Issued: $event_contract_issued_date<br>Deposit Taken: $event_deposit_taken_date<br>25% Due: $event_25_due_date <br>Final Talk: $event_final_wedding_talk_date <br>Final Payment: $event_final_payment_date</td>";
                             echo "<td><br><span $style_hold>On Hold: $event_hold</span><br><span $style_agreement_signed>Signed: $event_agreement_signed</span><br><span $style_deposit_taken>Deposit Paid: $event_deposit_taken</span><br><span $style_25_paid>Paid: $event_25_paid</span><br><span $style_had_final_talk>Done: $event_had_final_talk</span></td>";
                      
-                            echo "<td><br>Cost: £$event_cost <br> 25%: £$event_25_amount <br> Paid: £$event_paid <br> Left: £$event_total_outstanding </td>";
+                            echo "<td><br>Cost: £$event_cost <br> Deposit: £$event_deposit_amount <br> 25%: £$event_25_amount <br> Paid: £$event_paid <br> Left: £$event_total_outstanding </td>";
                             echo "<td><a class='btn btn-primary btn-block' role='button' href='customers.php?source=view_customer&view_customer={$event_customer_id}'><i class='fas fa-eye'></i> View Customer</a><br><a class='btn btn-block btn-success' role='button' href='weddings.php?source=edit_wedding&edit_wedding={$event_id}'><i class='fas fa-edit'></i> Edit</a><br><a class='btn btn-danger btn-block' role='button' href='weddings.php?delete={$event_id}&customer_id={$event_customer_id}'><i class='fas fa-trash-alt'></i> Delete</a></td>"; // Edit
                             echo "</tr>";
                             }
@@ -368,8 +370,10 @@ function create_appointment() {
         $event_hold_till_date = date_create($event_appointment_date);
         date_add($event_hold_till_date, date_interval_create_from_date_string("14 Days"));
         $event_hold_till_date = date_format($event_hold_till_date,"Y-m-d");
-        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_cost, event_25_amount, event_paid, event_total_outstanding) ";
-        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0) ";
+        $event_deposit_amount = 100.00;
+
+        $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_cost, event_25_amount, event_paid, event_total_outstanding, event_deposit_amount) ";
+        $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, '{$event_deposit_amount}') ";
 
         $create_wedding_query = mysqli_query($connection, $query);
 
@@ -495,18 +499,19 @@ function create_wedding() {
     $event_25_paid = $_POST['event_25_paid'];
     $event_had_final_talk = $_POST['event_had_final_talk'];
     $event_cost = $_POST['event_cost'];
-    $event_25_amount = $_POST['event_25_amount'];
-    $event_paid = $_POST['event_paid'];
-    $event_total_outstanding = $_POST['event_total_outstanding'];
+    $event_deposit_amount = 100.00;
 
-    $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_contract_issued_date, event_function_date, event_deposit_taken_date, event_25_due_date, event_final_wedding_talk_date, event_final_payment_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_cost,event_25_amount,event_paid,event_total_outstanding) ";
-    $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}','{$event_contract_issued_date}','{$event_function_date}','{$event_deposit_taken_date}','{$event_25_due_date}','{$event_final_wedding_talk_date}', '{$event_final_payment_date}', '{$event_hold}', '{$event_contract_returned}','{$event_agreement_signed}','{$event_deposit_taken}','{$event_25_paid}','{$event_had_final_talk}', '{$event_cost}','{$event_25_amount}','{$event_paid}','{$event_total_outstanding}') ";
+    $event_25_amount = $event_cost / 100 * 25;
+    
+    $query = "INSERT INTO event_details(event_customer_id, event_appointment_date, event_hold_till_date, event_contract_issued_date, event_function_date, event_deposit_taken_date, event_25_due_date, event_final_wedding_talk_date, event_final_payment_date, event_hold, event_contract_returned, event_agreement_signed, event_deposit_taken, event_25_paid, event_had_final_talk, event_cost,event_deposit_amount,event_25_amount) ";
+    $query .= "VALUES('{$event_customer_id}','{$event_appointment_date}','{$event_hold_till_date}','{$event_contract_issued_date}','{$event_function_date}','{$event_deposit_taken_date}','{$event_25_due_date}','{$event_final_wedding_talk_date}', '{$event_final_payment_date}', '{$event_hold}', '{$event_contract_returned}','{$event_agreement_signed}','{$event_deposit_taken}','{$event_25_paid}','{$event_had_final_talk}', '{$event_cost}','{$event_deposit_amount}','{$event_25_amount}') ";
     $create_wedding_query = mysqli_query($connection, $query);
     confirmsQuery($create_wedding_query); // Calls a function so that i can refer 
 
     $query = "UPDATE customers_details SET wedding_booked = 1 WHERE customer_id = $event_customer_id";
                             $wedding_booked_Query = mysqli_query($connection, $query);
                             confirmsQuery($wedding_booked_Query);
+                            header("Location: index.php"); // Refreshes Page 
 
                         }
 

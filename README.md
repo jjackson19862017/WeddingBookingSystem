@@ -196,6 +196,12 @@ I changed the add customer page, into there respective form files and functions.
 
 I changed the add weddings page, into there respective form files and functions.
 
+### 27th - Added Costs, 25 Percent and Deposits
+
+I added a field into the database for deposits, and i also set a default value in the function page to 100.00 .
+
+I have also out a calculation for 25 percent of the actual cost of the wedding.
+
 ## Removal of items
 
 ### view_all_customers

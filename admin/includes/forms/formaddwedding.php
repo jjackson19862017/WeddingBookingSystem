@@ -142,34 +142,22 @@
     <hr>
     <div class="form-group form-inline">
         <label for="event_cost">cost:</label>
-        <input type="text" name="event_cost" id="" class="form-control">
+        <input type="number" name="event_cost" id="" class="form-control">
     </div>
-
-    <div class="form-group form-inline">
-        <label for="event_25_amount">25% Amount:</label>
-        <input type="text" name="event_25_amount" id="" class="form-control">
-    </div>
-
-    <div class="form-group form-inline">
-        <label for="event_paid">Amount Paid:</label>
-        <input type="text" name="event_paid" id="" class="form-control">
-    </div>
-
-    <div class="form-group form-inline">
-        <label for="event_total_outstanding">Total Outstanding:</label>
-        <input type="text" name="event_total_outstanding" id="" class="form-control">
-    </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-5 mx-auto">
     
-
-        </div>
-        <div class="col-xs-12 col-md-5 well mx-auto">
         <div class="form-group form-inline">
         <input type="submit" class="btn btn-primary btn-block" name="create_wedding" id="" Value="Insert Wedding">
-    </div>
+        
+        <?php 
+        
+        $cost = 1000;
+        $cost25 = $cost / 100 * 25;
+        
+        echo "25% " . $cost25; ?>
+        </div>
+       
+    
         </div>
     </div>
+    
 </form>
