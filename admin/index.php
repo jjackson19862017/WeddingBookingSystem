@@ -14,7 +14,7 @@
     <div class="row">
         <!-- Main area that takes up 2/3 thirds of the screen. -->
         <div class="col-md-8">
-            <?php include "dashboard.php" ?> 
+            <?php include "dashboard2.php" ?> 
         </div>
         <!-- Side area that takes up 1/3 third of the right hand side of the screen. -->
         <div class="col-md-4">

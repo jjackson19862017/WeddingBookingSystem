@@ -7,7 +7,6 @@
                 <?php 
 
                     $query = "SELECT * FROM customers_details WHERE wedding_booked = 0";
-
                     $select_customers_Id = mysqli_query($connection, $query);
                     confirmsQuery($select_customers_Id);
                     while($row = mysqli_fetch_assoc($select_customers_Id)) 
@@ -18,7 +17,7 @@
                     $grooms_forename = $row['grooms_forename'];
                     $grooms_surname = $row['grooms_surname'];
                     
-                    $couple = $brides_forename . " " . $brides_surname . " and " . $grooms_forename . " " . $grooms_surname ;
+                    $couple = $brides_forename . " " . $brides_surname . " & " . $grooms_forename . " " . $grooms_surname ;
 
                     echo "<option value='$customer_id'>{$couple}</option>";
                     } ?>
@@ -146,14 +145,7 @@
     </div>
     
         <div class="form-group form-inline">
-        <input type="submit" class="btn btn-primary btn-block" name="create_wedding" id="" Value="Insert Wedding">
-        
-        <?php 
-        
-        $cost = 1000;
-        $cost25 = $cost / 100 * 25;
-        
-        echo "25% " . $cost25; ?>
+            <input type="submit" class="btn btn-primary btn-block" name="create_wedding" id="" Value="Insert Wedding">
         </div>
        
     

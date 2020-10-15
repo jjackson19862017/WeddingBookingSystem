@@ -24,7 +24,7 @@
                         $brides_surname = $row['brides_surname'];
                         $grooms_forename = $row['grooms_forename'];
                         $grooms_surname = $row['grooms_surname'];
-                        $couple = $brides_forename . " " . $brides_surname . " and " . $grooms_forename . " " . $grooms_surname ;
+                        $couple = $brides_forename . " " . $brides_surname . " & " . $grooms_forename . " " . $grooms_surname ;
                         echo "<option value='$customer_id'>{$couple}</option>";
                         }    
                     ?>

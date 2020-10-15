@@ -1,5 +1,5 @@
 <?php
-
+//Variables used for multiple functions
 $style_yes = "class='text-success'";
 $style_no = "class='text-danger'";
 
@@ -13,76 +13,6 @@ function confirmsQuery($result) // This is check to make sure a query works
 
 
 };
-
-
-function insert_navi() 
-{
-    global $connection; // Calls the variable from the db.php
-    if(isset($_POST['submit'])) // If the submit button was pressed on the navi form.
-        {
-        // echo "<h1>Hello</h1>";    //  TESTING
-            $navi_name = $_POST['navi_name'];
-
-            if($navi_name == "" || empty($navi_name)) 
-                {
-                    echo "This field should not be empty.";
-                } 
-                else 
-                {
-                    
-                    $query = "INSERT INTO admin_navi(navi_name) ";
-                    $query .= "VALUE('{$navi_name}') ";
-                    $create_navi = mysqli_query($connection, $query);
-                    if(!$create_navi) 
-                    {
-                    die('QUERY FAILED' . mysqli_error($connection));
-                    }
-
-
-                }
-        } 
-
-}
-
-function findAllnavi() 
-{
-global $connection;
-
-$query = "SELECT * FROM admin_navi";
-$select_navi = mysqli_query($connection, $query);
-
-    while($row = mysqli_fetch_assoc($select_navi)) 
-        {
-        $navi_id = $row['navi_id'];
-        $navi_name = $row['navi_name'];
-        $navi_icon = htmlspecialchars($row['navi_icon'],ENT_QUOTES);
-
-        echo "<tr>";
-        echo "<td>{$navi_id}</td>";
-        echo "<td>{$navi_name}</td>";
-        echo "<td>{$navi_icon}</td>";
-        echo "<td><a href='navi.php?delete={$navi_id}'>Delete</a></td>"; // Delete
-        echo "<td><a href='navi.php?edit={$navi_id}'>Edit</a></td>"; // Edit
-        echo "<tr>";
-        }
-}
-
-function delete_navi() 
-{
-global $connection;
-    
-    if(isset($_GET['delete'])) 
-    {
-        $delete_navi_id = $_GET['delete'];
-        $query = "DELETE FROM admin_navi WHERE navi_id = {$delete_navi_id}";
-        $deleteQuery = mysqli_query($connection, $query);
-        header("Location: navi.php"); // Refreshes Page
-    }
-
-
-
-
-}
 
 function select_role()
 {
@@ -541,8 +471,3 @@ function edit_user($user_id) {
     header("Location: users.php"); // Refreshes Page 
 }
 
-
-
-
-
-?>

@@ -55,7 +55,7 @@
                             updates_function_date($event_customer_id,$event_id);    
                         }
 
-                        $couple = $brides_forename . " " . $brides_surname . " and " . $grooms_forename . " " . $grooms_surname ;
+                        $couple = $brides_forename . " " . $brides_surname . " & " . $grooms_forename . " " . $grooms_surname ;
                         echo "<option value='$event_customer_id'>{$couple}</option>";
                         
                     ?>

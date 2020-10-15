@@ -77,17 +77,17 @@
                                     $grooms_surname = $row['grooms_surname'];
                                 }
 
-                                if(isset($_GET['change_is_agreement_signed'])) {
+                                // if(isset($_GET['change_is_agreement_signed'])) {
                                             
-                                    $customer_id = $_GET['change_is_agreement_signed'];
-                                    $query = "UPDATE event_details SET event_contract_returned = 1 WHERE event_customer_id = $customer_id";
-                                    $change_contract_returned = mysqli_query($connection, $query);
-                                    confirmsQuery($change_contract_returned);
-                                    $query = "UPDATE event_details SET event_agreement_signed = 1 WHERE event_customer_id = $customer_id";
-                                    $change_is_agreement_signed = mysqli_query($connection, $query);
-                                    confirmsQuery($change_is_agreement_signed);
-                                    header("Location: index.php"); // Refreshes Page
-                                    }
+                                //     $customer_id = $_GET['change_is_agreement_signed'];
+                                //     $query = "UPDATE event_details SET event_contract_returned = 1 WHERE event_customer_id = $customer_id";
+                                //     $change_contract_returned = mysqli_query($connection, $query);
+                                //     confirmsQuery($change_contract_returned);
+                                //     $query = "UPDATE event_details SET event_agreement_signed = 1 WHERE event_customer_id = $customer_id";
+                                //     $change_is_agreement_signed = mysqli_query($connection, $query);
+                                //     confirmsQuery($change_is_agreement_signed);
+                                //     header("Location: index.php"); // Refreshes Page
+                                //     }
                             echo $brides_forename . " & " . $grooms_forename . " <a class='btn btn-link btn-sm' role='button' href='customers.php?source=view_customer&view_customer={$customer_id}'><i class='fas fa-eye'></i> View</a> <a class='btn btn-link btn-sm' role='button' href='index.php?change_is_agreement_signed={$customer_id}'><i class='fas fa-check-circle'></i> Signed</a><br>"; 
                             }
                             ?></p>

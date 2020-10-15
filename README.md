@@ -202,6 +202,10 @@ I added a field into the database for deposits, and i also set a default value i
 
 I have also out a calculation for 25 percent of the actual cost of the wedding.
 
+### 28th - Updated Dashboard Cards
+
+I have changed the cards into a navi-card collection with tables.
+
 ## Removal of items
 
 ### view_all_customers
