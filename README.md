@@ -206,13 +206,18 @@ I have also out a calculation for 25 percent of the actual cost of the wedding.
 
 I have changed the cards into a navi-card collection with tables.
 
+### 29th - Updated Customer View Cards
+
+So that now the dates are in the top right card with the status of where things are upto, and how much amount is outstanding.
+
+I have also changed the accordian card so that there is a way in the future for the money to be added and subtracted.
+
 ## Removal of items
 
 ### view_all_customers
 
 Edit Button
 
-
-
 ### Files
+
 add_wedding_quick.php
