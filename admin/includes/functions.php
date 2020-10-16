@@ -55,14 +55,14 @@ global $style_no;
                                 $style_wedding_booked = $style_no . " class='align-middle'";
                             }
 
-                            $bride_and_groom = $brides_forename . " " . $brides_surname . " and " . $grooms_forename . " " . $grooms_surname . "<br>" . $preferred_contact;
+                            $bride_and_groom = $brides_forename . " " . $brides_surname . " and " . $grooms_forename . " " . $grooms_surname . " - " . $preferred_contact;
 
                             echo "<tr>";
                             echo "<td class='align-middle'>$bride_and_groom </td>";
                             echo "<td $style_wedding_booked>$wedding_booked</td>";
-                            echo "<td class='align-middle'><a class='btn btn-primary' role='button' href='customers.php?source=view_customer&view_customer={$customer_id}'><i class='fas fa-eye'></i> View</a>
-                                <a class='btn btn-success' role='button' href='customers.php?source=edit_customer&edit_customer={$customer_id}'><i class='fas fa-user-edit'></i> Edit</a>
-                                <a class='btn btn-danger' role='button' href='customers.php?delete={$customer_id}'><i class='fas fa-trash-alt'></i> Delete</a></td>";
+                            echo "<td class='align-middle'><a class='btn btn-primary btn-sm' role='button' href='customers.php?source=view_customer&view_customer={$customer_id}'><i class='fas fa-eye'></i> View</a>
+                                <a class='btn btn-success btn-sm' role='button' href='customers.php?source=edit_customer&edit_customer={$customer_id}'><i class='fas fa-user-edit'></i> Edit</a>
+                                <a class='btn btn-danger btn-sm' role='button' href='customers.php?delete={$customer_id}'><i class='fas fa-trash-alt'></i> Delete</a></td>";
                             echo "</tr>";
                             }
 }
@@ -412,6 +412,17 @@ function create_customer() {
         $grooms_telephone = $_POST['grooms_telephone'];
         $grooms_email = $_POST['grooms_email'];
         $preferred_contact = $_POST['preferred_contact'];
+
+        if($preferred_contact == "Brides Telephone") {
+            $preferred_contact = $brides_telephone;
+        } elseif ($preferred_contact == "Brides Email") {
+            $preferred_contact = $brides_email;
+        } elseif ($preferred_contact == "Grooms Telephone") {
+            $preferred_contact = $grooms_telephone;            
+        } else $preferred_contact = $grooms_email;
+
+
+
         $address_1 = $_POST['address_1'];
         $address_2 = $_POST['address_2'];
         $town_city = $_POST['town_city'];

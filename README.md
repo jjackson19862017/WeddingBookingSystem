@@ -216,6 +216,11 @@ I have also changed the accordian card so that there is a way in the future for 
 
 Once a user has inputted an event date and contract issued then they can add the event cost.
 
+### 31th - Finished the Preferred Contact Option
+
+When a user adds or edits a new customer, they can use one of the existing values.
+
+
 ## Removal of items
 
 ### view_all_customers

@@ -63,7 +63,12 @@
                     <div class="col-xs-12 col-md-5 well mx-auto">
                         <div class="form-group form-inline">
                             <label for="preferred_contact">Preferred Contact</label>
-                            <input type="text" name="preferred_contact" id="" class="form-control">
+                            <select class="form-control" id="" name="preferred_contact">
+                            <option>Brides Telephone</option>
+                            <option>Brides Email</option>
+                            <option>Grooms Telephone</option>
+                            <option>Grooms Email</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" name="create_customer" id="" Value="Add Customers Details">

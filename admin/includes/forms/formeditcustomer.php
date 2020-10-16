@@ -66,8 +66,28 @@
                     <div class="col-xs-12 col-md-5 well mx-auto">
 
                         <div class="form-group form-inline">
-                            <label for="preferred_contact">Preferred Contact</label>
-                            <input type="text" name="preferred_contact" id="" class="form-control" value="<?php echo $preferred_contact?>">
+                        <label for="preferred_contact">Preferred Contact</label>
+
+                        <select name="preferred_contact" id="">
+                    <?php 
+                        $query = "SELECT * FROM customers_details WHERE customer_id = $customer_id";
+                        $select_preferred_contact = mysqli_query($connection, $query);
+                        confirmsQuery($select_preferred_contact);
+                        while($row = mysqli_fetch_assoc($select_preferred_contact)) 
+                        { 
+                        $customer_id = $row['customer_id'];
+                        $brides_telephone = $row['brides_telephone'];
+                        $brides_email = $row['brides_email'];
+                        $grooms_telephone = $row['grooms_telephone'];
+                        $grooms_email = $row['grooms_email'];
+                        echo "<option value='$brides_telephone'>$brides_telephone - Brides Telephone</option>";
+                        echo "<option value='$brides_email'>$brides_email - Brides Email</option>";
+                        echo "<option value='$grooms_telephone'>$grooms_telephone - Grooms Telephone</option>";
+                        echo "<option value='$grooms_email'>$grooms_email - Grooms Email</option>";
+
+                        }    
+                    ?>
+                </select>
                         </div>
                         <div class="form-group form-inline">
                         <label for="wedding_booked">Wedding Booked?<br></label>
