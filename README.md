@@ -212,6 +212,10 @@ So that now the dates are in the top right card with the status of where things 
 
 I have also changed the accordian card so that there is a way in the future for the money to be added and subtracted.
 
+### 30th - Created A Event Cost Input on the Dashboard
+
+Once a user has inputted an event date and contract issued then they can add the event cost.
+
 ## Removal of items
 
 ### view_all_customers

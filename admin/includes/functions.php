@@ -294,7 +294,7 @@ function create_appointment() {
     // Takes a couples customer id and updates the events table.
     global $connection;
 
-    $event_customer_id = $_POST['event_customer_id'];
+        $event_customer_id = $_POST['event_customer_id'];
         $event_appointment_date = $_POST['event_appointment_date'];
         
         $event_hold_till_date = date_create($event_appointment_date);
@@ -377,6 +377,26 @@ global $connection;
 
 }
 
+function updates_event_cost($event_id,$event_cost) {
+    global $connection;
+
+            $event_cost = $_POST['$event_cost'];
+            
+            $event_25_amount = $event_cost / 100 * 25;
+    
+            $query = "UPDATE event_details SET ";
+            $query .= "event_cost = '{$event_cost}', ";
+            $query .= "event_25_amount = '{$event_25_amount}', ";
+            $query .= "event_total_outstanding = '{$event_cost}' ";
+            $query .= "WHERE event_id = '{$event_id}' ";
+            
+            $update_event_cost_query = mysqli_query($connection, $query);
+            confirmsQuery($update_event_cost_query);
+            // header("Location: index.php"); // Refreshes Page 
+    echo $event_cost;
+    
+    }
+
 // ADDING RELATED FUNCTIONS
 
 // Add Customers
@@ -429,7 +449,7 @@ function create_wedding() {
     $event_25_paid = $_POST['event_25_paid'];
     $event_had_final_talk = $_POST['event_had_final_talk'];
     $event_cost = $_POST['event_cost'];
-    $event_deposit_amount = 100.00;
+    $event_deposit_amount = 500.00;
 
     $event_25_amount = $event_cost / 100 * 25;
     
