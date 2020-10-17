@@ -36,6 +36,7 @@
             } else {
                 $button_colour = "danger"; // Red
             }
+
             // Converting event_hold_till_date to readable format
             $event_hold_till_date = date_format(new DateTime($event_hold_till_date),"D d M Y");
            

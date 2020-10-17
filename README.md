@@ -224,6 +224,10 @@ When a user adds or edits a new customer, they can use one of the existing value
 
 Added a fourth column, to the table to indicate how many days are left before the specific date has past.
 
+### 33rd - Added Days To Go to the rest of the Dashboard Cards
+
+Added a fourth column, to the tables to indicate how many days are left before the specific date has past for Outstanding Costs and Final Talk.
+
 ## Removal of items
 
 ### view_all_customers

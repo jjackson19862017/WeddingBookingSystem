@@ -8,6 +8,7 @@
                     <th class="align-middle" style="width: 350px;">Couple</th>
                     <th class="align-middle" style="width: 200px;">25% Due Date</th>
                     <th class="align-middle">Options</th>
+                    <th class="align-middle">DTG</th>
                 </tr>
             </thead>
         <tbody>
@@ -19,6 +20,21 @@
         {
         $event_customer_id = $row['event_customer_id'];
         $event_25_due_date = $row['event_25_due_date'];
+
+        // Counting down the days left till the event_hold_till_date
+        $date = new DateTime($event_25_due_date);
+        $now = new DateTime();
+        $countdown = $date->diff($now)->format('- %a days to go');
+        if($date < $now){
+            $downnumber = 0;
+        } else {
+        $downnumber = $date->diff($now)->format('%a');
+        }
+        if($downnumber > 0){
+            $button_colour = "success"; // Green
+        } else {
+            $button_colour = "danger"; // Red
+        }
 
         
         $query = "SELECT * FROM customers_details WHERE customer_id = '$event_customer_id'";
@@ -37,6 +53,7 @@
             echo "<td>$short_couple</td>";
             echo "<td>" . date_format(new DateTime($event_25_due_date),"D d M y") . "</td>";
             echo "<td><a class='btn btn-primary btn-sm' role='button' href='customers.php?source=view_customer&view_customer={$customer_id}'><i class='fas fa-eye'></i> View</a></td>"; // Edit
+            echo "<td><button class='btn btn-$button_colour btn-sm'><i class='fas fa-calendar-day'></i> $downnumber</button></td>";
             echo "</tr>";
             }
             ?>

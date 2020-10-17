@@ -8,6 +8,7 @@
                     <th class="align-middle" style="width: 350px;">Couple</th>
                     <th class="align-middle" style="width: 200px;">Final Meeting Date</th>
                     <th class="align-middle">Options</th>
+                    <th class="align-middle">DTG</th>
                 </tr>
             </thead>
         <tbody>
@@ -21,6 +22,22 @@
             $event_customer_id = $row['event_customer_id'];
             $event_final_wedding_talk_date = $row['event_final_wedding_talk_date'];
             
+            // Counting down the days left till the event_hold_till_date
+            $date = new DateTime($event_final_wedding_talk_date);
+            $now = new DateTime();
+            $countdown = $date->diff($now)->format('- %a days to go');
+            if($date < $now){
+                $downnumber = 0;
+            } else {
+            $downnumber = $date->diff($now)->format('%a');
+            }
+            if($downnumber > 0){
+                $button_colour = "success"; // Green
+            } else {
+                $button_colour = "danger"; // Red
+            }
+
+
             $query = "SELECT * FROM customers_details WHERE customer_id = '$event_customer_id'";
             $select_all_need_final_talk_customers = mysqli_query($connection, $query);
                 while($row = mysqli_fetch_assoc($select_all_need_final_talk_customers)) 
@@ -48,6 +65,7 @@
                 echo "<td>$short_couple</td>";
                 echo "<td>" . date_format(new DateTime($event_final_wedding_talk_date),"D d M y") . "</td>";
                 echo "<td><a class='btn btn-primary btn-sm' role='button' href='customers.php?source=view_customer&view_customer={$customer_id}'><i class='fas fa-eye'></i> View</a> <a class='btn btn-success btn-sm' role='button' href='index.php?change_had_final_talk={$customer_id}'><i class='fas fa-check-circle'></i> Had Talk</a></td>"; // Edit
+                echo "<td><button class='btn btn-$button_colour btn-sm'><i class='fas fa-calendar-day'></i> $downnumber</button></td>";
                 echo "</tr>";
                 }
                 ?>
