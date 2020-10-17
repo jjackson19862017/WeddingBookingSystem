@@ -1,4 +1,12 @@
+<?php 
+            $query = "SELECT * FROM event_details WHERE event_agreement_signed = 0 ORDER BY event_appointment_date ASC";
+            $select_unsigned_customers = mysqli_query($connection, $query);
+        $count = mysqli_num_rows($select_unsigned_customers); // Counts the returned query
+
+?>
+
 <div class="card-body">
+<?php if($count > 0){?>
     <h5 class="card-title">
     Unsigned Agreements
     </h5>
@@ -12,11 +20,7 @@
                 </tr>
             </thead>
         <tbody>
-            <?php 
-            $query = "SELECT * FROM event_details WHERE event_agreement_signed = 0 ORDER BY event_appointment_date ASC";
-
-            $select_unsigned_customers = mysqli_query($connection, $query);
-
+            <?php
             while($row = mysqli_fetch_assoc($select_unsigned_customers)) 
             {
             $event_customer_id = $row['event_customer_id'];
@@ -90,4 +94,9 @@
             ?>
         </tbody>
         </table>
+        <?php } else { ?>
+                <h5 class="card-title">
+    You have No Unsigned Agreements.
+    </h5>
+            <?php } ?>   
     </div>

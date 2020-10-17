@@ -30,7 +30,8 @@ if(isset($_GET['edit_wedding'])) {
                             $event_25_amount = $row['event_25_amount'];
                             $event_paid = $row['event_paid'];
                             $event_total_outstanding = $row['event_total_outstanding'];
-
+                            $event_final_payment_date = $row['event_final_payment_date'];
+                            
                             }
 
 
@@ -61,6 +62,8 @@ if(isset($_GET['edit_wedding'])) {
         $event_25_amount = $_POST['event_25_amount'];
         $event_paid = $_POST['event_paid'];
         $event_total_outstanding = $_POST['event_total_outstanding'];
+        $event_final_payment_date = $_POST['event_final_payment_date'];
+
 
 
 
@@ -84,6 +87,8 @@ if(isset($_GET['edit_wedding'])) {
         $query .= "event_cost = '{$event_cost}', ";
         $query .= "event_25_amount = '{$event_25_amount}', ";
         $query .= "event_paid = '{$event_paid}', ";
+        $query .= "event_final_payment_date = '{$event_final_payment_date}', ";
+
         $query .= "event_total_outstanding = '{$event_total_outstanding}' ";
 
         $query .= "WHERE event_id = {$the_event_id} ";

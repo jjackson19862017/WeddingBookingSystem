@@ -1,4 +1,11 @@
+<?php 
+    $query = "SELECT * FROM customers_details WHERE wedding_booked = 0 ORDER BY date_added ASC";
+    $select_unbooked_customers = mysqli_query($connection, $query);
+    $count = mysqli_num_rows($select_unbooked_customers); // Counts the returned query
+?>
+
 <div class="card-body">
+    <?php if($count > 0){?>
     <h5 class="card-title">
     Unbooked Customers 
     </h5>
@@ -11,11 +18,7 @@
                 </tr>
             </thead>
         <tbody>
-            <?php 
-            $query = "SELECT * FROM customers_details WHERE wedding_booked = 0 ORDER BY date_added ASC";
-
-            $select_unbooked_customers = mysqli_query($connection, $query);
-
+           <?php
             while($row = mysqli_fetch_assoc($select_unbooked_customers)) 
             {
             $customer_id = $row['customer_id'];
@@ -34,6 +37,10 @@
             }
             ?>
         </tbody>
-        </table>  
-    
+        </table>
+        <?php } else { ?>
+                <h5 class="card-title">
+    You have No Outstanding Bookings.
+    </h5>
+            <?php } ?>  
 </div>

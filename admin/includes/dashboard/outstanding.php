@@ -1,8 +1,15 @@
+<?php 
+        $query = "SELECT * FROM event_details WHERE event_25_paid = 0 ORDER BY event_appointment_date ASC";
+        $select_unpaid_25_customers = mysqli_query($connection, $query);
+        $count = mysqli_num_rows($select_unpaid_25_customers); // Counts the returned query
+?>
+
 <div class="card-body">
-                            <h5 class="card-title">
-                            Outstanding 25% Costs
-                            </h5>
-                            <table class="table table-sm table-hover table-borderless">
+    <?php if($count > 0){?>
+    <h5 class="card-title">
+    Outstanding 25% Costs
+    </h5>
+        <table class="table table-sm table-hover table-borderless">
             <thead class="thead-dark">
                 <tr>
                     <th class="align-middle" style="width: 350px;">Couple</th>
@@ -12,9 +19,7 @@
                 </tr>
             </thead>
         <tbody>
-        <?php 
-        $query = "SELECT * FROM event_details WHERE event_25_paid = 0 ORDER BY event_appointment_date ASC";
-        $select_unpaid_25_customers = mysqli_query($connection, $query);
+        <?php
 
         while($row = mysqli_fetch_assoc($select_unpaid_25_customers)) 
         {
@@ -58,5 +63,10 @@
             }
             ?>
         </tbody>
-    </table>              
+    </table>
+    <?php } else { ?>
+                <h5 class="card-title">
+    You have No Outstanding Costs.
+    </h5>
+            <?php } ?>          
 </div>

@@ -1,4 +1,12 @@
+<?php 
+$query = "SELECT * FROM event_details WHERE event_deposit_taken = 0 ORDER BY event_appointment_date ASC";
+$select_unpaid_deposits_customers = mysqli_query($connection, $query);
+$count = mysqli_num_rows($select_unpaid_deposits_customers); // Counts the returned query
+?>
+
+
 <div class="card-body">
+    <?php if($count > 0){?>
     <h5 class="card-title">
     Unpaid Deposits 
     </h5>
@@ -14,10 +22,6 @@
                                 
 
     <?php 
-$query = "SELECT * FROM event_details WHERE event_deposit_taken = 0 ORDER BY event_appointment_date ASC";
-
-$select_unpaid_deposits_customers = mysqli_query($connection, $query);
-
 while($row = mysqli_fetch_assoc($select_unpaid_deposits_customers)) 
 {
 $event_customer_id = $row['event_customer_id'];
@@ -40,5 +44,10 @@ $select_all_unpaid_deposits_customers = mysqli_query($connection, $query);
     echo "</tr>";
 }
 ?>   </tbody>
-</table>  
+</table> 
+<?php } else { ?>
+                <h5 class="card-title">
+    You have No Unpaid Deposits.
+    </h5>
+            <?php } ?>
                     </div>

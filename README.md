@@ -228,6 +228,10 @@ Added a fourth column, to the table to indicate how many days are left before th
 
 Added a fourth column, to the tables to indicate how many days are left before the specific date has past for Outstanding Costs and Final Talk.
 
+### 34rd - Added If Statements to the rest of the Dashboard Cards
+
+Used If statements to hide the tables of they are no rows.
+
 ## Removal of items
 
 ### view_all_customers
