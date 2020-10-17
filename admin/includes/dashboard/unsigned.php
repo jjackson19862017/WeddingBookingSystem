@@ -6,8 +6,9 @@
             <thead class="thead-dark">
                 <tr>
                     <th class="align-middle" style="width: 350px;">Couple</th>
-                    <th class="align-middle" style="width: 200px;">Contact Number</th>
+                    <th class="align-middle" style="width: 200px;">Hold Till Date</th>
                     <th class="align-middle">Options</th>
+                    <th class="align-middle">DTG</th>
                 </tr>
             </thead>
         <tbody>
@@ -19,6 +20,25 @@
             while($row = mysqli_fetch_assoc($select_unsigned_customers)) 
             {
             $event_customer_id = $row['event_customer_id'];
+            $event_hold_till_date = $row['event_hold_till_date'];
+            
+            // Counting down the days left till the event_hold_till_date
+            $date = new DateTime($event_hold_till_date);
+            $now = new DateTime();
+            $countdown = $date->diff($now)->format('- %a days to go');
+            if($date < $now){
+                $downnumber = 0;
+            } else {
+            $downnumber = $date->diff($now)->format('%a');
+            }
+            if($downnumber > 0){
+                $button_colour = "success"; // Green
+            } else {
+                $button_colour = "danger"; // Red
+            }
+            // Converting event_hold_till_date to readable format
+            $event_hold_till_date = date_format(new DateTime($event_hold_till_date),"D d M Y");
+           
             $query = "SELECT * FROM customers_details WHERE customer_id = '$event_customer_id'";
             $select_all_customers_unsigned = mysqli_query($connection, $query);
                 while($row = mysqli_fetch_assoc($select_all_customers_unsigned)) 
@@ -60,9 +80,10 @@
                     $short_couple = $brides_forename . " & " . $grooms_forename;
 
             echo "<tr>";
-            echo "<td>$short_couple</td>";
-            echo "<td>$preferred_contact</td>";
-            echo "<td><a class='btn btn-primary btn-sm' role='button' href='customers.php?source=view_customer&view_customer={$customer_id}'><i class='fas fa-eye'></i> View</a> <a class='btn btn-success btn-sm' role='button' href='index.php?change_is_agreement_signed={$customer_id}'><i class='fas fa-check-circle'></i> Signed</a></td>"; // Edit
+            echo "<td>$short_couple - $preferred_contact</td>";
+            echo "<td>$event_hold_till_date</td>";
+            echo "<td><a class='btn btn-primary btn-sm' role='button' href='customers.php?source=view_customer&view_customer={$customer_id}'><i class='fas fa-eye'></i> View</a> <a class='btn btn-success btn-sm' role='button' href='index.php?change_is_agreement_signed={$customer_id}'><i class='fas fa-check-circle'></i> Signed</a> </td>";
+            echo "<td><button class='btn btn-$button_colour btn-sm'><i class='fas fa-calendar-day'></i> $downnumber</button></td>";
             echo "</tr>";
             }
             ?>

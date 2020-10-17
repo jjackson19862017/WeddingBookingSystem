@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="height: 70vh;">
         <!-- Main area that takes up 2/3 thirds of the screen. -->
         <div class="col-md-8">
             <?php include "dashboard2.php" ?> 

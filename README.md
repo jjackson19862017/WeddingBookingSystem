@@ -220,6 +220,9 @@ Once a user has inputted an event date and contract issued then they can add the
 
 When a user adds or edits a new customer, they can use one of the existing values.
 
+### 32nd - Added Days To Go to Unsigned Agreements
+
+Added a fourth column, to the table to indicate how many days are left before the specific date has past.
 
 ## Removal of items
 
